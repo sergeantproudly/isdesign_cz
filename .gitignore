@@ -1,0 +1,8 @@
+node_modules/
+src/
+.htaccess
+settings.php
+mycms/settings.php
+sitemap.xml
+robots.txt
+uploads/
