@@ -72,7 +72,7 @@ class sitemap extends krn_abstract {
 		foreach ($pages as $page => $lastmodtime) {
 			$url=$urlset->appendChild($xml->createElement('url'));
 			$loc=$url->appendChild($xml->createElement('loc'));
-			$loc->appendChild($xml->createTextNode($siteUrl . (substr($siteUrl,-1)!='/'?'/':'') . $page . '/'));
+			$loc->appendChild($xml->createTextNode($siteUrl . (substr($siteUrl,-1)!='/'?'/':'') . ($page ? $page . '/' : '')));
 			$lastmod=$url->appendChild($xml->createElement('lastmod'));
 			$lastmod->appendChild($xml->createTextNode(date('c',$lastmodtime?$lastmodtime:time())));
 			$changefreq=$url->appendChild($xml->createElement('changefreq'));
