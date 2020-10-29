@@ -1,5 +1,5 @@
 function msgSetWait(node,text,displayType){
-	if(!text)text='Just a second...';
+	if(!text)text='Jen vteřinku...';
 	if(!displayType)displayType='block';
 	$(node).before(displayType=='inline'?'<span class="wait">'+text+'</span>':'<div class="wait">'+text+'</div>');
 	return $(node).prev().get(0);
