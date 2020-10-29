@@ -1,0 +1,27 @@
+<!-- Services2 contact section-->
+
+    <section class="contact holder-wrap">
+        <h2><%TITLE%></h2>
+        <div class="contact-wrap <%CLASS%>" id="contacts">
+            <div class="contact-img">
+                <img src="assets/images/team<%INDEX%>_target.png" alt="<%ALT%>">
+            </div>
+            <div class="contact-form">
+                <h4><%TEXT%></h4>  
+                <form id="form" action="<%ACTION%>" method="post" data-submit="sendTarget">
+                    <input type="name" placeholder="<%LANG::NAME%>" name="name">
+                    <input required type="tel" placeholder="<%LANG::PHONE%>" name="tel" data-multimask="true">
+                    <button class="btn" type="submit" name="submit_btn"><%BUTTON%></button>
+
+                    <input type="hidden" name="referer" value="<%REFERER%>">
+                    <input type="hidden" name="code" value="<%CODE%>">
+                </form>
+            </div>
+            <div class="text-form">
+                <img src="assets/images/modal-thanks-img.png" alt="<%SUCCESSHEADER%>">
+                <h4><%SUCCESSHEADER%><br/><span><%SUCCESS%></span></h4>     
+            </div>
+        </div>
+    </section>
+
+    <%HR%>

@@ -1,0 +1,17 @@
+<div class="h1"><%TITLE%></div>
+
+				<%TEXT%>
+
+				<form action="<%ACTION%>" method="post" class="form" data-submit="sendFeedback">
+					<input type="text" name="name" maxlength="255" value="" placeholder="<%LANG::NAME%>">
+					<input type="tel" name="tel" maxlength="255" value="" data-multimask="true" placeholder="<%LANG::PHONE%>" aria-required>
+
+					<textarea class="js-autoheight" name="text" placeholder="<%LANG::TEXT%>"></textarea>
+
+					<div class="cb-line"><input type="checkbox" name="agree" id="modal-<%ID%>-agree"><label for="modal-<%ID%>-agree"><%LANG::AGREEMENT%></label></div>
+
+					<button name="submit_btn" class="btn"><%LANG::SEND%></button>
+					
+					<input type="hidden" name="referer" value="<%REFERER%>">
+					<input type="hidden" name="code" value="modal-<%CODE%>">
+				</form>

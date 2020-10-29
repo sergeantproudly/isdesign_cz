@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="<%LANG%>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="<%META_KEYWORDS%>"/> 
+    <meta name="description" content="<%META_DESCRIPTION%>"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+	<link rel="manifest" href="/assets/images/site.webmanifest">
+	<link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/assets/images/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+    <title><%PAGE_TITLE%></title>
+    <%META_VERIFICATION%>
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="<%PAGE_TITLE%>"/>
+	<meta property="og:description" name="description" content="<%META_DESCRIPTION%>"/>
+	<meta property="og:image" content="<%META_IMAGE%>"/>
+    <link rel="preload" href="/assets/fonts/geometria-light-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/raleway-medium-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/geometria-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/geometria-medium-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/geometria-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/style.css?19">
+    <%ANALYTICS%>
+</head>
+<body>
+	<%YANDEX_METRIKA%>
+    <%RATING_COUNTER%>
+
+  <div class="layout" id="layout">
+
+    <!-- Header -->
+
+    <header>
+        <div class="holder">   
+            <a href="/" role="banner" class="logo"><img src="assets/images/main2.png" alt="isDesign"></a>
+            <!-- Desktop-menu -->
+            <%MN_MAIN%>
+            <a href="tel:<%TELLINK%>" id="phone-number"><%TEL%></a>
+            <div id="advice"><a href="#modal-consultation" class="js-modal-link"><%FEEDBACKTITLE%></a></div>
+            <%MN_LANG%>  
+        </div>   
+    </header>
+
+	<%CONTENT%>
+</div>
+
+<!-- Footer -->
+
+<footer class="site-footer" role="contentinfo">
+    <div class="holder">
+        <div class="footer-top">
+            <div id="copyright"><%COPYRIGHT%></div>
+            <img src="assets/images/main2.png" alt="isDesign" id="footer-logo">
+            <div id="direction"><%DIRECTION%></div>
+        </div>
+        <ul class="footer-top-link">
+            <li><a href="/privacy-policy/"><%LANG::PRIVACY_POLICY%></a></li>
+            <li><a href="/map/"><%LANG::MAP%></a></li>
+            <li><a href="#modal-feedback" class="js-modal-link"><%LANG::FEEDBACK%></a></li>        
+        </ul>
+    </div>
+ 
+    <div class="footer-bottom">
+        <div class="holder">
+            <%MN_BOTTOM%>
+        </div> 
+    </div>
+</footer>
+
+<!-- Modal section -->
+
+<div class="modal-fadeout"></div>
+<%MODALS%>
+
+<%CONSULTANT%>
+
+<%COOKIES%>
+
+<script type="text/javascript" src="/assets/js/scripts.js?19"></script>
+</body>
+</html>

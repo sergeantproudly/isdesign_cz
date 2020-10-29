@@ -1,0 +1,83 @@
+/*@font-face {
+  font-family: 'Geometria';
+  src: url('../fonts/Geometria.eot');
+  src: url('../fonts/Geometria.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/Geometria.woff2') format('woff2'),
+      url('../fonts/Geometria.woff') format('woff'),
+      url('../fonts/Geometria.ttf') format('truetype'),
+      url('../fonts/Geometria.svg#Geometria') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}*/
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('../fonts/geometria-webfont.eot');
+  src: url('../fonts/geometria-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/geometria-webfont.woff2') format('woff2'),
+       url('../fonts/geometria-webfont.woff') format('woff'),
+       url('../fonts/geometria-webfont.ttf') format('truetype'),
+       url('../fonts/geometria-webfont.svg#geometriaregular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('../fonts/geometria-medium-webfont.eot');
+  src: url('../fonts/geometria-medium-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/geometria-medium-webfont.woff2') format('woff2'),
+       url('../fonts/geometria-medium-webfont.woff') format('woff'),
+       url('../fonts/geometria-medium-webfont.ttf') format('truetype'),
+       url('../fonts/geometria-medium-webfont.svg#geometriamedium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('../fonts/geometria-bold-webfont.eot');
+  src: url('../fonts/geometria-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/geometria-bold-webfont.woff2') format('woff2'),
+       url('../fonts/geometria-bold-webfont.woff') format('woff'),
+       url('../fonts/geometria-bold-webfont.ttf') format('truetype'),
+       url('../fonts/geometria-bold-webfont.svg#geometriabold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('../fonts/geometria-light-webfont.eot');
+  src: url('../fonts/geometria-light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/geometria-light-webfont.woff2') format('woff2'),
+       url('../fonts/geometria-light-webfont.woff') format('woff'),
+       url('../fonts/geometria-light-webfont.ttf') format('truetype'),
+       url('../fonts/geometria-light-webfont.svg#geometrialight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/raleway-medium-webfont.eot');
+  src: url('../fonts/raleway-medium-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/raleway-medium-webfont.woff2') format('woff2'),
+       url('../fonts/raleway-medium-webfont.woff') format('woff'),
+       url('../fonts/raleway-medium.ttf') format('truetype'),
+       url('../fonts/raleway-medium-webfont.svg#ralewaymedium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+font-display: swap;
+}
