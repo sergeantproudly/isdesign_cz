@@ -2,6 +2,7 @@
 
 	define('SERVICE_ITEM_ID_RU', 46);
 	define('SERVICE_ITEM_ID_EN', 53);
+	define('SERVICE_ITEM_ID_CZ', 57);
 
 	class Menu {
 
@@ -57,7 +58,7 @@
 			if (!$parentItemId) {
 				$this->items[$menuDb][0] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n WHERE Lang = ?i ORDER BY IF(`Order`,-1000/`Order`,0) ASC', $menuDb, $this->lang->GetId());
 			} else {
-				if ($parentItemId != SERVICE_ITEM_ID_RU && $parentItemId != SERVICE_ITEM_ID_EN) {
+				if ($parentItemId != SERVICE_ITEM_ID_RU && $parentItemId != SERVICE_ITEM_ID_EN && $parentItemId != SERVICE_ITEM_ID_CZ) {
 					$this->items[$menuDb][$itemId] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n WHERE ItemId = ?i AND Lang = ?i ORDER BY IF(`Order`,-1000/`Order`,0) ASC', 
 						$menuDb, 
 						$parentItemId,
