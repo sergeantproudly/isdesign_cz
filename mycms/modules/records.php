@@ -1047,7 +1047,7 @@ class records extends krn_abstract{
 						$inp=strtr($inp,array(
 							'<%IDNUM%>'			=> ' id="'.$name.$rec[$this->document['IdElement']].'"',
 							'<%NAME%>'			=> $name.'['.$rec[$this->document['IdElement']].']',
-							'<%VALUE%>'			=> $elementProperties[5]!='password'?$rec[$name]:'',
+							'<%VALUE%>'			=> $elementProperties[5]!='password' ? htmlspecialchars($rec[$name]) : '',
 							'<%MAXLENGTH%>'		=> $elementProperties[10],
 							'<%ATTRIBUTES%>'	=> $attributes
 						));

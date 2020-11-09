@@ -587,7 +587,7 @@ function PopupRecordEdit($template){
 				$inp=strtr($inp,array(
 					'<%IDNUM%>'			=> '',
 					'<%NAME%>'			=> $name,
-					'<%VALUE%>'			=> $elementProperties[5]!='password'?$record[$name]:'',
+					'<%VALUE%>'			=> $elementProperties[5]!='password' ? htmlspecialchars($record[$name]) : '',
 					'<%MAXLENGTH%>'		=> $elementProperties[10],
 					'<%ATTRIBUTES%>'	=> $attributes
 				));
