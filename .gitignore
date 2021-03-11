@@ -1,9 +1,9 @@
-node_modules/*
-src/*
+/node_modules
+/src
 .htaccess
 settings.php
-mycms/settings.php
+/mycms/settings.php
 sitemap.xml
 robots.txt
-uploads/*
-mycms/uploads/*
+/uploads
+/mycms/uploads
