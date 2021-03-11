@@ -1,259 +1,229 @@
 <?xml version="1.0" encoding="utf8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://isdesigngroup.ru//</loc>
-    <lastmod>2020-02-05T19:21:00+03:00</lastmod>
+    <loc>https://isdesignhome.com/</loc>
+    <lastmod>2020-10-28T12:45:32+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/individual-projecting/</loc>
-    <lastmod>2020-06-19T19:29:48+03:00</lastmod>
+    <loc>https://isdesignhome.com/individual-projecting/</loc>
+    <lastmod>2020-10-29T12:58:41+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/building/</loc>
-    <lastmod>2020-06-19T19:29:48+03:00</lastmod>
+    <loc>https://isdesignhome.com/building/</loc>
+    <lastmod>2020-10-29T12:58:41+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/overhaul/</loc>
-    <lastmod>2020-06-19T19:29:48+03:00</lastmod>
+    <loc>https://isdesignhome.com/overhaul/</loc>
+    <lastmod>2020-10-29T12:58:41+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/interior-design/</loc>
-    <lastmod>2020-06-19T19:29:48+03:00</lastmod>
+    <loc>https://isdesignhome.com/interior-design/</loc>
+    <lastmod>2020-10-29T12:58:41+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/interior-finish/</loc>
-    <lastmod>2020-06-19T19:29:48+03:00</lastmod>
+    <loc>https://isdesignhome.com/interior-finish/</loc>
+    <lastmod>2020-10-29T12:58:41+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/engineering/</loc>
-    <lastmod>2020-06-19T19:29:48+03:00</lastmod>
+    <loc>https://isdesignhome.com/engineering/</loc>
+    <lastmod>2020-10-29T12:58:41+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/decoration/</loc>
-    <lastmod>2020-06-19T19:29:48+03:00</lastmod>
+    <loc>https://isdesignhome.com/decoration/</loc>
+    <lastmod>2020-10-29T12:58:41+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/</loc>
-    <lastmod>2020-02-19T15:32:37+03:00</lastmod>
+    <loc>https://isdesignhome.com/projects/</loc>
+    <lastmod>2020-10-28T12:49:52+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/statues/</loc>
-    <lastmod>2020-02-19T15:33:02+03:00</lastmod>
+    <loc>https://isdesignhome.com/statues/</loc>
+    <lastmod>2020-08-03T04:49:01+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/contact/</loc>
-    <lastmod>2020-02-26T20:03:48+03:00</lastmod>
+    <loc>https://isdesignhome.com/contact/</loc>
+    <lastmod>2020-10-28T12:45:55+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/privacy-policy/</loc>
-    <lastmod>2020-02-19T12:08:27+03:00</lastmod>
+    <loc>https://isdesignhome.com/privacy-policy/</loc>
+    <lastmod>2020-10-28T12:49:43+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/map/</loc>
-    <lastmod>2019-08-20T12:29:47+03:00</lastmod>
+    <loc>https://isdesignhome.com/map/</loc>
+    <lastmod>2020-10-28T12:47:30+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/statues/osnovnie_zablujdeniya_nashih_klientov_reshivshih_sdelat_remont/</loc>
+    <loc>https://isdesignhome.com/projects/cottages/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/statues/etapi_dizayn_proekta/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/statues/klient_ne_vsegda_prav/</loc>
+    <loc>https://isdesignhome.com/projects/commerce/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/statues/vibor_dizaynera_chto_nado_znat/</loc>
+    <loc>https://isdesignhome.com/projects/cottages/dom_berlin/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/statues/dizayneri_znakomimsya_poblije/</loc>
+    <loc>https://isdesignhome.com/projects/cottages/dom_praha___nebušice/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/cottages/</loc>
+    <loc>https://isdesignhome.com/projects/cottages/dom_jesenice/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/praga_alfarezidence/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/commerce/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/penthaus_v_karlovih_varah/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/cottages/dom_berlin/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/rezidenciya_korunni/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/cottages/dom_praha___nebušice/</loc>
+    <loc>https://isdesignhome.com/projects/commerce/showroom_santehnicheskogo_oborudovaniya/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/cottages/dom_jesenice/</loc>
+    <loc>https://isdesignhome.com/projects/commerce/magazin_klassicheskoy_mebeli/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/praga_alfarezidence/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/rezidenciya_kajetanka/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/penthaus_v_karlovih_varah/</loc>
+    <loc>https://isdesignhome.com/projects/commerce/otel_pod_pragoy/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/rezidenciya_korunni/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/rezidenciya_river_watch/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/commerce/showroom_santehnicheskogo_oborudovaniya/</loc>
+    <loc>https://isdesignhome.com/projects/cottages/gostevoy_dom_s_basseynom_v_karlovih_varah/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/commerce/magazin_klassicheskoy_mebeli/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/rezidenciya_viladomy_milíčovský_les/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/rezidenciya_kajetanka/</loc>
+    <loc>https://isdesignhome.com/projects/cottages/dom_tachlovice/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/commerce/otel_pod_pragoy/</loc>
+    <loc>https://isdesignhome.com/projects/cottages/dom_v_karlovih_varah/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/rezidenciya_river_watch/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/chetirehkomnatnaya_kvartira_v_rezidencii_central_park_praga/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/cottages/gostevoy_dom_s_basseynom_v_karlovih_varah/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/rezidenciya_central_park/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/rezidenciya_viladomy_milíčovský_les/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/Olgy_Havlove_18/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/cottages/dom_tachlovice/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/korolevskie_vinogradi/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/cottages/dom_v_karlovih_varah/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/rezidenciya_mostecká_21/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/chetirehkomnatnaya_kvartira_v_rezidencii_central_park_praga/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/karlovi_vari_rezidenciya_chertovka___vizualizaciya/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/rezidenciya_central_park/</loc>
-    <lastmod>1970-01-01T03:00:00+03:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/Olgy_Havlove_18/</loc>
-    <lastmod>1970-01-01T03:00:00+03:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/korolevskie_vinogradi/</loc>
-    <lastmod>1970-01-01T03:00:00+03:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/rezidenciya_mostecká_21/</loc>
-    <lastmod>1970-01-01T03:00:00+03:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/karlovi_vari_rezidenciya_chertovka___vizualizaciya/</loc>
-    <lastmod>1970-01-01T03:00:00+03:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://isdesigngroup.ru/projects/interiors/rezidenciya_river_lofts/</loc>
+    <loc>https://isdesignhome.com/projects/interiors/rezidenciya_river_lofts/</loc>
     <lastmod>1970-01-01T03:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
