@@ -130,6 +130,7 @@
 				'<%LANG%>'					=> $this->lang->GetLang('Acronym'),
 		    	'<%META_KEYWORDS%>'			=> $Config['Site']['Keywords'],
 		    	'<%META_DESCRIPTION%>'		=> $Config['Site']['Description'],
+		    	'<%META_EXTENDED%>'			=> '',
 		    	'<%META_IMAGE%>'			=> '',
 		    	'<%PAGE_TITLE%>'			=> $siteTitle,
 		    	'<%SITE_TITLE%>'			=> $siteTitle,
