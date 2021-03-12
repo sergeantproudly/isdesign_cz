@@ -84,11 +84,13 @@ class blocks extends krn_abstract{
 		$index = $data['Index'];
 		$params = $this->GetBlockParams($code, $index);
 
+		$tag = $params['Htag'] ? $params['Htag'] . ' class="h2"' : 'h2';
+
 		$result = LoadTemplate($code ? 'bl_'.$code : 'bl_text');
 		$result = strtr($result, array(
 			'<%CLASS%>'		=> $params['Class'] ?: '',
-			'<%HEADER%>'	=> $this->blocks_info[$code][$index]['Header'] ? '<h2>'.$this->blocks_info[$code][$index]['Header'].'</h2>' : '',
-			'<%TITLE%>'		=> $this->blocks_info[$code][$index]['Header'] ? '<h2>'.$this->blocks_info[$code][$index]['Header'].'</h2>' : '',
+			'<%HEADER%>'	=> $this->blocks_info[$code][$index]['Header'] ? '<'.$tag.'>'.$this->blocks_info[$code][$index]['Header'].'</'.$tag.'>' : '',
+			'<%TITLE%>'		=> $this->blocks_info[$code][$index]['Header'] ? '<'.$tag.'>'.$this->blocks_info[$code][$index]['Header'].'</'.$tag.'>' : '',
 			'<%CONTENT%>'	=> $this->blocks_info[$code][$index]['Content'],
 			'<%HR%>'		=> $params['Hr'] == 1 ? '<hr class="hr">' : '',
 		));
