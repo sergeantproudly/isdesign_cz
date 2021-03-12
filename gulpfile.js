@@ -23,6 +23,7 @@ const jsFiles = [
 	'./src/js/jquery.magnific-popup.js',
 	'./src/js/slick.min.js',
 	'./src/js/wow.min.js',
+	'./src/js/lang.js',
 	'./src/js/cookies_notice.js',
 	'./src/js/checks.js',
 	'./src/js/messages.js',
@@ -78,7 +79,7 @@ function copy() {
 
 function watch() {
 	browserSync.init({
-        proxy: 'isdesign.local:8080'
+        proxy: 'isdesigncz.local:8080'
     });
 
 	gulp.watch('./src/css/**/*.scss', styles);

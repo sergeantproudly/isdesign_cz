@@ -7,3 +7,6 @@ sitemap.xml
 robots.txt
 /uploads
 /mycms/uploads
+package.json
+package-lock.json
+gulpfile.js
