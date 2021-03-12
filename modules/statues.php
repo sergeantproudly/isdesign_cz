@@ -80,10 +80,16 @@ class statues extends krn_abstract {
 				'function'	=> 'statuesMore();'
 			]) : '';
 
+			if ($this->pageIndex && $this->pageIndex > 1) {
+				$metaExtended = '<meta name="robots" content="noindex, follow" />'.PHP_EOL;
+				$metaExtended .= '<link rel="canonical" href="' . $this->settings->GetSetting('SiteUrl', $Config['Site']['Url']) . '/' . $this->page['Code'] . '/"/>'.PHP_EOL;
+			}
+
 			$result = krnLoadPageByTemplate('statues');
 			$result = strtr($result, array(
 				'<%META_KEYWORDS%>'		=> $this->page['SeoKeywords'] ?: $Config['Site']['Keywords'],
 				'<%META_DESCRIPTION%>'	=> $this->page['SeoDescription'] ?: $Config['Site']['Description'],
+				'<%META_EXTENDED%>'		=> $metaExtended,
 		    	'<%PAGE_TITLE%>'		=> $this->page['SeoTitle'] ?: $this->pageTitle,
 		    	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
 		    	'<%TITLE%>'				=> $this->page['Header'] ?: $this->pageTitle,

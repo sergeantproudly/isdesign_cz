@@ -12,7 +12,7 @@ class projects extends krn_abstract{
 
 		$this->page = $this->db->getRow('SELECT Id, Code, Title, Header FROM static_pages WHERE Code = ?s AND Lang = ?i', 'projects', $this->lang->GetId());
 
-		if (preg_match('/^[\d]+$/', $_LEVEL[4], $m) || preg_match('/^[\d]+$/', $_LEVEL[3], $m)) $this->pageIndex = $m[0];
+		if (preg_match('/^[\d]+$/', $_LEVEL[4], $m) || preg_match('/^[\d]+$/', $_LEVEL[3], $m) || preg_match('/^[\d]+$/', $_LEVEL[2], $m)) $this->pageIndex = $m[0];
 
 		if ($_LEVEL[3] && !preg_match('/^[\d]+$/', $_LEVEL[3])) {
 			$this->projectCode = $_LEVEL[3];
@@ -36,9 +36,9 @@ class projects extends krn_abstract{
 				$this->project['CategoryTitle'] => '/' . $this->page['Code'] . '/' . $this->project['CategoryCode'] . '/#projects-' . $this->project['CategoryCode']),
 				$this->pageTitle);
 
-		} elseif (!preg_match('/^[\d]+$/', $_LEVEL[2])) {
+		} elseif ($_LEVEL[2] && !preg_match('/^[\d]+$/', $_LEVEL[2])) {
 			$this->categoryCode = $_LEVEL[2];
-			if (!$this->categoryCode) $this->categoryCode = $this->db->getOne('SELECT Code FROM cat_categories WHERE Lang = ?i ORDER BY IF(`Order`, -100/`Order`, 0), Title LIMIT 0, 1', $this->lang->GetId());
+			//if (!$this->categoryCode) $this->categoryCode = $this->db->getOne('SELECT Code FROM cat_categories WHERE Lang = ?i ORDER BY IF(`Order`, -100/`Order`, 0), Title LIMIT 0, 1', $this->lang->GetId());
 
 			$query = 'SELECT c.Id, c.Title, c.Code, c.Header, c.SeoTitle, c.SeoKeywords, c.SeoDescription '
 					.'FROM cat_categories c '
@@ -53,6 +53,9 @@ class projects extends krn_abstract{
 				$this->lang->GetValue('PAGE_HOME') => '/',
 				$this->page['Title'] => '/' . $this->page['Code'] . '/'),
 				$this->pageTitle);
+
+		} else {
+			$this->pageTitle = $this->page['SeoTitle'] ?: $this->page['Title'];
 		}
 	}	
 
@@ -110,25 +113,33 @@ class projects extends krn_abstract{
 			));
 
 		} else {
-			$tabs['#projects-new'] = $this->lang->GetValue('CATEGORY_NEW');
+			$tabs[$this->page['Code'] . '/'] = $this->lang->GetValue('CATEGORY_NEW');
 			$items = $this->db->getAll('SELECT Title, Code FROM cat_categories WHERE Lang = ?i ORDER BY IF(`Order`, -100/`Order`, 0), Title', $this->lang->GetId());
 			foreach ($items as $item) {
-				$tabs['#projects-' . $item['Code']] = $item['Title'];
+				$tabs[$this->page['Code'] . '/' . $item['Code'] . '/'] = $item['Title'];
 			}
 			$tabs = new Tabs([
+				'template' => 'projects_tabs',
+				'itemActive' => $this->category['Code'] ? ($this->page['Code'] . '/' . $this->category['Code'] . '/') : '',
 				'items'	=> $tabs,
 				'classHolder' => 'projects-info-header',
 			]);
 
 			$content = $this->GetCategory();
+
+			if ($this->pageIndex && $this->pageIndex > 1) {
+				$metaExtended = '<meta name="robots" content="noindex, follow" />'.PHP_EOL;
+				$metaExtended .= '<link rel="canonical" href="' . $this->settings->GetSetting('SiteUrl', $Config['Site']['Url']) . '/' . $this->page['Code'] . ($this->category ? '/' . $this->category['Code'] : '') . '/"/>'.PHP_EOL;
+			}
+
 			$result = krnLoadPageByTemplate('projects');
 			$result = strtr($result, array(
 				'<%META_KEYWORDS%>'		=> $this->category['SeoKeywords'] ?: $Config['Site']['Keywords'],
 				'<%META_DESCRIPTION%>'	=> $this->category['SeoDescription'] ?: $Config['Site']['Description'],
+				'<%META_EXTENDED%>'		=> $metaExtended,
 		    	'<%PAGE_TITLE%>'		=> $this->category['SeoTitle'] ?: $this->pageTitle,
 		    	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
-		    	'<%DATATAB%>'			=> $_LEVEL[2] ? ' data-default-tab="#projects-' . $this->category['Code'] .'"' : '',
-		    	'<%TITLE%>'				=> $_LEVEL[2] ? ($this->category['Title'] ?: $this->pageTitle) : ($this->page['Header'] ?: $this->page['Title']),
+		    	'<%TITLE%>'				=> $this->category['Code'] ? ($this->category['Title'] ?: $this->pageTitle) : ($this->page['Header'] ?: $this->page['Title']),
 		    	'<%TABS%>'				=> $tabs->GetTabs(),
 		    	'<%CONTENT%>'			=> $content,
 			));
@@ -141,14 +152,30 @@ class projects extends krn_abstract{
 		return $result;
 	}
 
-	public function GetCategory() {
+	public function GetCategory($ajax = false) {
 		$element = LoadTemplate('projects_categories_el');
 		$element2 = LoadTemplate('projects_el');
 		$content = '';
 
-		// new projects
+		$this->recsOnPage = $this->settings->GetSetting('ProjectsRecsOnPage', 12);
+		$this->totalCount = $this->GetProjectsCount();
+
+		// projects
 		$content2 = '';
-		$projects = $this->db->getAll('SELECT p.Title, p.Code, p.Text, p.Image1204_766 AS Image, c.Code AS CategoryCode FROM cat_projects p LEFT JOIN cat_categories c ON p.CategoryId = c.Id WHERE p.IsNew = 1 AND p.Lang = ?i ORDER BY IF(p.`Order`, -100/p.`Order`, 0), p.Title', $this->lang->GetId());
+		if ($this->category) {
+			// by category
+			$projects = $this->db->getAll('SELECT p.Title, p.Code, p.Text, p.Image1204_766 AS Image, c.Code AS CategoryCode FROM cat_projects p LEFT JOIN cat_categories c ON p.CategoryId = c.Id WHERE p.CategoryId = ?i AND p.Lang = ?i ORDER BY IF(p.`Order`, -100/p.`Order`, 0), p.Title LIMIT ?i, ?i',
+				$this->category['Id'], 
+				$this->lang->GetId(),
+				($this->pageIndex - 1) * $this->recsOnPage,
+				$this->recsOnPage);
+		} else {
+			// only new
+			$projects = $this->db->getAll('SELECT p.Title, p.Code, p.Text, p.Image1204_766 AS Image, c.Code AS CategoryCode FROM cat_projects p LEFT JOIN cat_categories c ON p.CategoryId = c.Id WHERE p.IsNew = 1 AND p.Lang = ?i ORDER BY IF(p.`Order`, -100/p.`Order`, 0), p.Title LIMIT ?i, ?i', 
+				$this->lang->GetId(),
+				($this->pageIndex - 1) * $this->recsOnPage,
+				$this->recsOnPage);
+		}
 		$even = false;
 		foreach ($projects as $project) {
 			$link = '/' . $this->page['Code'] . '/' . $project['CategoryCode'] . '/' . $project['Code'] . '/';
@@ -165,13 +192,21 @@ class projects extends krn_abstract{
 			$even = !$even;
 		}
 
+		if ($ajax) return $content2;
+
+		$more = $this->recsOnPage * $this->pageIndex < $this->totalCount ? GetMore([
+			'link'		=> '/projects/' . $this->category['Code'] . '/' . ($this->pageIndex + 1) . '/',
+			'function'	=> 'projectsMore();'
+		]) : '';
+
 		$content .= strtr($element, [
-			'<%CLASS%>'		=> ' active',
-			'<%CODE%>'		=> 'new',
+			'<%PAGEINDEX%>'	=> $this->pageIndex,
 			'<%CONTENT%>'	=> $content2,
+			'<%MORE%>'		=> $more,
 		]);
 
 		// categories
+		/*
 		$items = $this->db->getAll('SELECT Id, Title, Code FROM cat_categories WHERE Lang = ?i ORDER BY IF(`Order`, -100/`Order`, 0), Title', $this->lang->GetId());
 		foreach ($items as $item) {
 			$content2 = '';
@@ -198,6 +233,7 @@ class projects extends krn_abstract{
 				'<%CONTENT%>'	=> $content2,
 			]);
 		}
+		*/
 
 		return $content;
 	}
@@ -252,11 +288,31 @@ class projects extends krn_abstract{
 	}
 
 	public function GetProjectsCount() {
-		return $this->db->getAll('SELECT COUNT(Id) FROM cat_projects WHERE CategoryId =?i AND Lang = ?i', $item['Id'], $this->lang->GetId());
+		if ($this->category) {
+			return $this->db->getOne('SELECT COUNT(Id) FROM cat_projects WHERE CategoryId =?i AND Lang = ?i', $this->category['Id'], $this->lang->GetId());
+		} else {
+			return $this->db->getOne('SELECT COUNT(Id) FROM cat_projects WHERE IsNew = 1 AND Lang = ?i', $this->lang->GetId());
+		}
 	}
 
 	public function GetPhotosCount() {
 		return $this->db->getOne('SELECT COUNT(Id) FROM cat_project_photos WHERE ProjectId = ?i AND Lang = ?i', $this->project['Id'], $this->lang->GetId());
+	}
+
+	public function GetMoreProjectsByPage() {		
+		$result = $this->GetCategory(true);
+
+		$this->recsOnPage = $this->settings->GetSetting('ProjectsRecsOnPage', 12);
+		$this->totalCount = $this->GetProjectsCount();
+
+		$more = $this->recsOnPage * $this->pageIndex < $this->totalCount;
+
+		$json = array(
+			'more' => $more,
+			'html' => $this->lang->ProcessTemplate($result),
+		);
+		
+		return json_encode($json);
 	}
 
 	public function GetMorePhotosByPage() {
