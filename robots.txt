@@ -1,2 +1,0 @@
-Host: isdesigngroup.ru
-Sitemap: https://isdesigngroup.ru/sitemap.xml
