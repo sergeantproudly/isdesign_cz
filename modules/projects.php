@@ -42,8 +42,8 @@ class projects extends krn_abstract{
 
 			$query = 'SELECT c.Id, c.Title, c.Code, c.Header, c.SeoTitle, c.SeoKeywords, c.SeoDescription '
 					.'FROM cat_categories c '
-					.'WHERE c.Code = ?s';
-			$this->category = $this->db->getRow($query, $this->categoryCode);
+					.'WHERE c.Code = ?s AND Lang = ?i';
+			$this->category = $this->db->getRow($query, $this->categoryCode, $this->lang->GetId());
 			if (!$this->category) {
 				$this->notFound = true;
 			}
@@ -58,6 +58,7 @@ class projects extends krn_abstract{
 
 	public function GetResult() {
 		global $Site;
+		global $_LEVEL;
 
 		if ($this->notFound) {
 			header('HTTP/1.1 404 Not Found');
@@ -126,7 +127,8 @@ class projects extends krn_abstract{
 				'<%META_DESCRIPTION%>'	=> $this->category['SeoDescription'] ?: $Config['Site']['Description'],
 		    	'<%PAGE_TITLE%>'		=> $this->category['SeoTitle'] ?: $this->pageTitle,
 		    	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
-		    	'<%TITLE%>'				=> $_LEVEL[3] ? ($this->category['Header'] ?: $this->pageTitle) : ($this->page['Header'] ?: $this->page['Title']),
+		    	'<%DATATAB%>'			=> $_LEVEL[2] ? ' data-default-tab="#projects-' . $this->category['Code'] .'"' : '',
+		    	'<%TITLE%>'				=> $_LEVEL[2] ? ($this->category['Title'] ?: $this->pageTitle) : ($this->page['Header'] ?: $this->page['Title']),
 		    	'<%TABS%>'				=> $tabs->GetTabs(),
 		    	'<%CONTENT%>'			=> $content,
 			));
