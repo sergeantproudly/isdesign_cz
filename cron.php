@@ -26,9 +26,7 @@
 
   // GENERATE SITEMAP
   $sitemap = krnLoadModuleByName('sitemap');
-  foreach ($Lang->GetLangs() as $lang) {
-      $sitemap->Generate($lang['Id']);
-  }
+  $sitemap->Generate();
     
   echo 'STATUS OK';
 

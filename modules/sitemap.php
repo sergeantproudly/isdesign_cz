@@ -85,9 +85,9 @@ class sitemap extends krn_abstract {
 		$xml->save($this->filelabel . '.xml');
 	}
 	
-	public function Generate($langId) {
-		$this->lang->SetLangById($langId);
-		$this->filelabel = 'sitemap_' . $this->lang->GetLang('Acronym');
+	public function Generate() {
+		$this->lang->SetLangById($this->lang->GetId());
+		$this->filelabel = 'sitemap';
 
 		$pages = $this->GetPages();
 		$this->GetSitemap($pages);
