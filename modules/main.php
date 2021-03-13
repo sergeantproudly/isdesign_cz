@@ -1,6 +1,7 @@
 <?php
 
 krnLoadLib('settings');
+krnLoadLib('files');
 
 class main extends krn_abstract{	
 
@@ -43,7 +44,7 @@ class main extends krn_abstract{
 		$slider = $this->db->getAll('SELECT Image, ImageMob, Link, Text FROM slider WHERE Image <> "" AND Lang = ?i ORDER BY IF(`Order`, -1000/`Order`, 0)', $this->lang->GetId());
 		foreach ($slider as $counter => $slide) {
 			$slide['Class'] = $counter == 0 ? ' active' : '';
-			$slide['Background'] = 'data-background-image="' . $slide['Image'] . '" data-background-mob-image="' . $slide['ImageMob'] . '"';
+			$slide['Background'] = 'data-background-webp-image="' . flGetWebpByImage($slide['Image']) . '" data-background-webp-mob-image="' . flGetWebpByImage($slide['ImageMob']) . '" data-background-image="' . $slide['Image'] . '" data-background-mob-image="' . $slide['ImageMob'] . '"';
 			$content .= SetAtribs($element, $slide);
 		}
 
