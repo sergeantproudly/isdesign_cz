@@ -126,12 +126,20 @@
 			// cookies
 			$cookies = $_COOKIE['cookie_notice'] != 1 ? $this->lang->ProcessTemplate(LoadTemplate('cookies_notice')) : '';
 
+			// locale
+			if ($this->lang->GetLang('Acronym') == 'ru') $locale = 'ru_RU';
+			elseif ($this->lang->GetLang('Acronym') == 'en') $locale = 'en_US';
+			else $locale = 'cs_CZ';
+
 			$result = strtr($result, array(
 				'<%LANG%>'					=> $this->lang->GetLang('Acronym'),
 		    	'<%META_KEYWORDS%>'			=> $Config['Site']['Keywords'],
 		    	'<%META_DESCRIPTION%>'		=> $Config['Site']['Description'],
 		    	'<%META_EXTENDED%>'			=> '',
-		    	'<%META_IMAGE%>'			=> '',
+		    	'<%META_IMAGE%>'			=> $this->settings->GetSetting('SiteUrl', $Config['Site']['Url']) . '/assets/images/preview.jpg',
+		    	'<%META_IMAGE_WIDTH%>'		=> 1200,
+		    	'<%META_IMAGE_HEIGHT%>'		=> 627,
+		    	'<%LOCALE%>'				=> $locale,
 		    	'<%PAGE_TITLE%>'			=> $siteTitle,
 		    	'<%SITE_TITLE%>'			=> $siteTitle,
 		    	'<%SITE_TITLE_ALT%>'		=> htmlspecialchars($siteTitle, ENT_QUOTES),

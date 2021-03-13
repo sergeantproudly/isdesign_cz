@@ -16,7 +16,7 @@ class projects extends krn_abstract{
 
 		if ($_LEVEL[3] && !preg_match('/^[\d]+$/', $_LEVEL[3])) {
 			$this->projectCode = $_LEVEL[3];
-			$query = 'SELECT p.Id, p.Title, p.Text, p.Header, p.SeoTitle, p.SeoKeywords, p.SeoDescription, '
+			$query = 'SELECT p.Id, p.Title, p.Text, p.Header, p.Image1204_766 as Image, p.SeoTitle, p.SeoKeywords, p.SeoDescription, '
 					.'c.Title AS CategoryTitle, c.Code AS CategoryCode '
 					.'FROM cat_projects p '
 					.'LEFT JOIN cat_categories c ON p.CategoryId = c.Id '
@@ -97,10 +97,16 @@ class projects extends krn_abstract{
 				'function'	=> 'photosMore();'
 			]) : '';
 
+			$metaImgPath = $this->settings->GetSetting('SiteUrl', $Config['Site']['Url']) . '/' . $this->project['Image'];
+			$metaImgSize = getimagesize($metaImgPath);
+
 			$result = krnLoadPageByTemplate('project');
 			$result = strtr($result, array(
 				'<%META_KEYWORDS%>'		=> $this->project['SeoKeywords'] ?: $Config['Site']['Keywords'],
 				'<%META_DESCRIPTION%>'	=> $this->project['SeoDescription'] ?: $Config['Site']['Description'],
+				'<%META_IMAGE%>'		=> $metaImgPath,
+				'<%META_IMAGE_WIDTH%>'	=> $metaImgSize[0],
+		    	'<%META_IMAGE_HEIGHT%>'	=> $metaImgSize[1],
 		    	'<%PAGE_TITLE%>'		=> $this->project['SeoTitle'] ?: $this->pageTitle,
 		    	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
 		    	'<%TITLE%>'				=> $this->project['Header'] ?: $this->pageTitle,
