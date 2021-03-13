@@ -3,6 +3,7 @@
 krnLoadLib('define');
 krnLoadLib('settings');
 krnLoadLib('tabs');
+krnLoadLib('files');
 
 class blocks extends krn_abstract{
 	
@@ -156,6 +157,7 @@ class blocks extends krn_abstract{
 			$content .= strtr($element, [
 				'<%TITLE%>'		=> $title,
 				'<%LINK%>'		=> $link,
+				'<%IMAGEWEBP%>'	=> flGetWebpByImage($item['Image']),
 				'<%IMAGE%>'		=> $item['Image'],
 			]);
 		}
@@ -214,6 +216,7 @@ class blocks extends krn_abstract{
 					$content2 .= strtr($element2, [
 						'<%TITLE%>'	=> htmlspecialchars($photo['Title']),
 						'<%CLASS%>'	=> $content2 ? '' : ' active',
+						'<%IMAGEWEBP%>'	=> flGetWebpByImage($photo['Image']),
 						'<%IMAGE%>'	=> $photo['Image'],
 					]);
 				}
@@ -253,6 +256,7 @@ class blocks extends krn_abstract{
 				'<%ALT%>'		=> htmlspecialchars($item['Name'], ENT_QUOTES),
 				'<%POST%>'		=> $item['Post'],
 				'<%IMAGE%>'		=> $item['Image'],
+				'<%IMAGEWEBP%>'	=> flGetWebpByImage($item['Image']),
 			]);
 		}
 
@@ -265,6 +269,7 @@ class blocks extends krn_abstract{
 			'<%ALT%>'		=> htmlspecialchars($fst['Name'], ENT_QUOTES),
 			'<%POST%>'		=> $fst['Post'],
 			'<%IMAGE%>'		=> $fst['Image'],
+			'<%IMAGEWEBP%>'	=> flGetWebpByImage($fst['Image']),
 			'<%CONTENT%>'	=> $content,
 		)) : '';
 		return $result;
@@ -282,6 +287,7 @@ class blocks extends krn_abstract{
 			$content .= strtr($element, [
 				'<%ALT%>'		=> htmlspecialchars($item['Title'], ENT_QUOTES),
 				'<%IMAGE%>'		=> $item['Image'],
+				'<%IMAGEWEBP%>'	=> flGetWebpByImage($item['Image']),
 			]);
 		}
 
@@ -307,6 +313,7 @@ class blocks extends krn_abstract{
 				'<%ALT%>'		=> htmlspecialchars($item['Title'], ENT_QUOTES),
 				'<%IMAGEFULL%>'	=> $item['ImageFull'],
 				'<%IMAGE%>'		=> $item['Image'],
+				'<%IMAGEWEBP%>' => flGetWebpByImage($item['Image']),
 			]);
 		}
 
@@ -366,6 +373,7 @@ class blocks extends krn_abstract{
 				'<%ALT%>'		=> htmlspecialchars($item['Title'], ENT_QUOTES),
 				'<%TITLE%>'		=> $item['Title'],
 				'<%IMAGE%>'		=> $item['Image'],
+				'<%IMAGEWEBP%>'	=> flGetWebpByImage($item['Image']),
 			]);
 		}
 
@@ -441,7 +449,7 @@ class blocks extends krn_abstract{
 		foreach ($items as $i => $item) {
 			$link = '/projects/' . $item['CategoryCode'] . '/' . $item['Code'] . '/';
 			$alt = htmlspecialchars($item['Title'], ENT_QUOTES);
-			$image = '<a href="' . $link . '" class="projects-item-photo"><img src="' . $item['Image'] . '" alt="' . $alt . '"></a>';
+			$image = '<a href="' . $link . '" class="projects-item-photo"><picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '"></picture></a>';
 			$content .= strtr($element, [
 				'<%LINK%>'		=> $link,
 				'<%TITLE%>'		=> $item['Title'],
@@ -549,7 +557,7 @@ class blocks extends krn_abstract{
 		$even = false;
 		foreach ($items as $item) {
 			$alt = htmlspecialchars($item['Title'], ENT_QUOTES);
-			$image = '<img src="' . $item['Image'] . '" alt="' . $alt . '">';
+			$image = '<picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '"></picture>';
 			$content .= strtr($element, [
 				'<%TITLE%>'		=> $item['Title'],
 				'<%TEXT%>'		=> nl2br($item['Text']),

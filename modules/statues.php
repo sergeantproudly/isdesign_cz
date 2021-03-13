@@ -67,6 +67,7 @@ class statues extends krn_abstract {
 				'<%META_DESCRIPTION%>'	=> $this->statue['SeoDescription'] ?: $Config['Site']['Description'],
 		    	'<%PAGE_TITLE%>'		=> $this->statue['SeoTitle'] ?: $this->pageTitle,
 		    	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
+		    	'<%IMAGEWEBP%>'			=> flGetWebpByImage($this->statue['ImageFull']),
 		    	'<%IMAGE%>'				=> $this->statue['ImageFull'],
 		    	'<%TITLE%>'				=> $this->statue['Header'] ?: $this->pageTitle,
 		    	'<%TEXT%>'				=> $this->statue['Text'],
@@ -130,6 +131,7 @@ class statues extends krn_abstract {
 			$content .= strtr(!$even ? $element : $element2, [
 				'<%LINK%>'		=> '/' . $this->page['Code'] . '/' . $item['Code'] . '/',
 				'<%IMAGE%>'		=> $item[!$even ? 'Image' : 'Image2'],
+				'<%IMAGEWEBP%>'	=> flGetWebpByImage($item[!$even ? 'Image' : 'Image2']),
 				'<%TITLE%>'		=> $item['Title'],
 				'<%ALT%>'		=> htmlspecialchars($item['Title'], ENT_QUOTES),
 				'<%TEXT%>'		=> $item['Text'],

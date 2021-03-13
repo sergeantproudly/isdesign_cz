@@ -11,6 +11,8 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');   
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
+const clone = require('gulp-clone');
+const webp =  require('gulp-webp');
 
 const jsFiles = [
 	'./src/js/jquery-3.1.1.min.js',
@@ -27,6 +29,7 @@ const jsFiles = [
 	'./src/js/cookies_notice.js',
 	'./src/js/checks.js',
 	'./src/js/messages.js',
+	'./src/js/modernizr.js',
 	'./src/js/scripts.js'
 ];
 
@@ -62,8 +65,13 @@ function scripts() {
 }
 
 function images() {
+	var sink = clone.sink();
+
 	return gulp.src('./src/images/*')
         .pipe(imagemin())
+        .pipe(sink)
+        .pipe(webp())
+        .pipe(sink.tap({quality: 80}))
         .pipe(gulp.dest('./assets/images'));
 }
 
@@ -92,10 +100,22 @@ function clean() {
 	return del(['assets/*']);
 }
 
+function uploadedImagesToWebp() {
+	var sink = clone.sink();
+
+	return gulp.src('./uploads/**/*')
+        .pipe(imagemin())
+        .pipe(sink)
+        .pipe(webp())
+        .pipe(sink.tap({quality: 80}))
+        .pipe(gulp.dest('./uploads'));
+}
+
 //gulp.task('styles', styles);
 //gulp.task('scripts', scripts);
 gulp.task('images', images);
 gulp.task('watch', watch);
+gulp.task('uploaded_images2webp', uploadedImagesToWebp);
 
 gulp.task('build', gulp.series(clean,
 						gulp.parallel(styles, scripts, images, fonts)

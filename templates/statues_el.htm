@@ -1,6 +1,9 @@
 <li class="blog-item-large">
                     <a href="<%LINK%>">
-                        <img src="<%IMAGE%>" loading="lazy" alt="<%ALT%>">
+                    	<picture>
+							<source srcset="<%IMAGEWEBP%>" type="image/webp">
+						    <img src="<%IMAGE%>" loading="lazy" alt="<%ALT%>">
+						</picture>
                         <h2><%TITLE%></h2>
                         <span><%DATE%></span>
                     </a>

@@ -3,6 +3,7 @@
 krnLoadLib('define');
 krnLoadLib('settings');
 krnLoadLib('tabs');
+krnLoadLib('files');
 
 class projects extends krn_abstract{	
 
@@ -186,7 +187,7 @@ class projects extends krn_abstract{
 		foreach ($projects as $project) {
 			$link = '/' . $this->page['Code'] . '/' . $project['CategoryCode'] . '/' . $project['Code'] . '/';
 			$alt = htmlspecialchars($project['Title'], ENT_QUOTES);
-			$image = '<a href="' . $link . '" class="projects-item-photo"><img src="' . $project['Image'] . '" alt="' . $alt . '"></a>';
+			$image = '<a href="' . $link . '" class="projects-item-photo"><picture><source srcset="' . flGetWebpByImage($project['Image']) . '" type="image/webp"><img src="' . $project['Image'] . '" alt="' . $alt . '"></picture></a>';
 			$content2 .= strtr($element2, [
 				'<%LINK%>'	=> $link,
 				'<%ALT%>'	=> $alt,
@@ -262,6 +263,7 @@ class projects extends krn_abstract{
 				if ($counter == 1) $content2 .= '<div class="photo-item">';
 				$content2 .= strtr($counter == 0 ? $elementPhoto : $elementPhoto2, [
 					'<%ALT%>'	=> htmlspecialchars($item['Title'], ENT_QUOTES),
+					'<%IMAGEWEBP%>'	=> flGetWebpByImage('/' . $item[$counter == 0 ? 'ImageBig' : 'ImageMid']),
 					'<%IMAGE%>'	=> '/' . $item[$counter == 0 ? 'ImageBig' : 'ImageMid'],
 					'<%IMAGEFULL%>' => '/' . $item['ImageFull'],
 				]);
@@ -271,6 +273,7 @@ class projects extends krn_abstract{
 				if ($counter == 0) $content2 .= '<div class="photo-item">';
 				$content2 .= strtr($counter == 2 ? $elementPhoto : $elementPhoto2, [
 					'<%ALT%>'	=> htmlspecialchars($item['Title'], ENT_QUOTES),
+					'<%IMAGEWEBP%>'	=> flGetWebpByImage('/' . $item[$counter == 2 ? 'ImageBig' : 'ImageMid']),
 					'<%IMAGE%>'	=> '/' . $item[$counter == 2 ? 'ImageBig' : 'ImageMid'],
 					'<%IMAGEFULL%>' => '/' . $item['ImageFull'],
 				]);

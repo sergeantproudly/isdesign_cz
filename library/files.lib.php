@@ -136,4 +136,9 @@
 		return false;
 	}
 
+	function flGetWebpByImage($filepath) {
+		$extension = flGetExtension($filepath);
+		return preg_replace('/\.' . $extension .'$/', '.webp', $filepath);
+	}
+
 ?>

@@ -3,6 +3,7 @@
 krnLoadLib('define');
 krnLoadLib('settings');
 krnLoadLib('modal');
+krnLoadLib('files');
 
 class services extends krn_abstract{	
 
@@ -75,6 +76,7 @@ class services extends krn_abstract{
 	    	'<%BREAD_CRUMBS%>'		=> '',
 	    	'<%CLASS%>'				=> mb_strlen($header) > 50 ? ' class="wide"' : '',
 	    	'<%TITLE%>'				=> $header,
+	    	'<%IMAGEWEBP%>'			=> flGetWebpByImage($this->service['Image']),
 	    	'<%IMAGE%>'				=> $this->service['Image'],
 	    	'<%TEXT%>'				=> $this->service['Content'],
 	    	'<%BUTTON%>'			=> $this->service['Button'],
@@ -116,7 +118,7 @@ class services extends krn_abstract{
 		foreach ($items as $i => $item) {
 			$link = '/projects/' . $item['CategoryCode'] . '/' . $item['Code'] . '/';
 			$alt = htmlspecialchars($item['Title'], ENT_QUOTES);
-			$image = '<a href="' . $link . '" class="projects-item-photo"><img src="' . $item['Image'] . '" alt="' . $alt . '"></a>';
+			$image = '<a href="' . $link . '" class="projects-item-photo"><picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '"></picture></a>';
 			$content .= strtr($element, [
 				'<%LINK%>'		=> $link,
 				'<%TITLE%>'		=> $item['Title'],

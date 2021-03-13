@@ -4,13 +4,19 @@
         <div class="about holder">
             <div class="main-card">
                 <div class="photo">
-                    <img src="<%IMAGE%>" loading="lazy" alt="<%ALT%>">
+                    <picture>
+                        <source srcset="<%IMAGEWEBP%>" type="image/webp">
+                        <img src="<%IMAGE%>" loading="lazy" alt="<%ALT%>">
+                    </picture>
                 </div>
                 <div class="about-text">
                     <div class="h2"><%TITLE%></div>
                     <%TEXT%>
                     <div class="name">
-                        <img src="assets/images/about-sign.png" loading="lazy" alt="<%ALT%>">   
+                        <picture>
+                            <source srcset="assets/images/about-sign.webp" type="image/webp">
+                            <img src="assets/images/about-sign.png" loading="lazy" alt="<%ALT%>">   
+                        </picture>
                         <p class="sign"><%NAME%><br/><span><%POST%></span></p> 
                     </div> 
                 </div>

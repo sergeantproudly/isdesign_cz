@@ -4,7 +4,10 @@
         <div class="h2"><%TITLE%></div>
         <div class="contact-wrap <%CLASS%>" id="contacts">
             <div class="contact-img">
-                <img src="assets/images/team<%INDEX%>_target.png" loading="lazy" alt="<%ALT%>">
+                <picture>
+                    <source srcset="assets/images/team<%INDEX%>_target.webp" type="image/webp">
+                    <img src="assets/images/team<%INDEX%>_target.png" loading="lazy" alt="<%ALT%>">
+                </picture>
             </div>
             <div class="contact-form">
                 <h4><%TEXT%></h4>  
@@ -18,7 +21,10 @@
                 </form>
             </div>
             <div class="text-form">
-                <img src="assets/images/modal-thanks-img.png" loading="lazy" alt="<%SUCCESSHEADER%>">
+                <picture>
+                    <source srcset="assets/images/modal-thanks-img.webp" type="image/webp">
+                    <img src="assets/images/modal-thanks-img.png" loading="lazy" alt="<%SUCCESSHEADER%>">
+                </picture>
                 <h4><%SUCCESSHEADER%><br/><span><%SUCCESS%></span></h4>     
             </div>
         </div>
