@@ -131,6 +131,16 @@
 			elseif ($this->lang->GetLang('Acronym') == 'en') $locale = 'en_US';
 			else $locale = 'cs_CZ';
 
+			// JSON+LD
+			$socials = $this->db->getCol('SELECT Link FROM social ORDER BY IF(`Order`, -100/`Order`, 0)');
+			$jsonld = strtr(LoadTemplate('json_ld'), array(
+				'<%SITE_URL%>'	=> $this->settings->GetSetting('SiteUrl', $Config['Site']['Url']),
+				'<%META_IMAGE%>' => $this->settings->GetSetting('SiteUrl', $Config['Site']['Url']) . '/assets/images/preview.jpg',
+				'<%TELS%>'		=> $contact['Tel1'] . ($contact['Tel1'] && $contact['Tel2'] ? ', ' : '') . $contact['Tel2'],
+				'<%EMAIL%>'		=> $this->settings->GetSetting('Email', $Config['Site']['Email']),
+				'<%SOCIAL%>'	=> count($socials) ? ('"' . implode(('",'.PHP_EOL.'     "'), $socials) . '"') : '',
+			));
+
 			$result = strtr($result, array(
 				'<%LANG%>'					=> $this->lang->GetLang('Acronym'),
 		    	'<%META_KEYWORDS%>'			=> $Config['Site']['Keywords'],
@@ -162,6 +172,7 @@
 		    	'<%MODALS%>'				=> $this->GetModals(),
 		    	'<%CONSULTANT%>'			=> $this->settings->GetSetting('ConsultantCode'),
 		    	'<%ANALYTICS%>'				=> $this->settings->GetSetting('AnalyticsCode'),
+		    	'<%JSONLD%>'				=> $jsonld,
 		    	'<%BLOCK1%>'				=> '',
 		    	'<%BLOCK2%>'				=> '',
 		    	'<%BLOCK3%>'				=> '',
