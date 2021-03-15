@@ -43,6 +43,8 @@ class Lang {
 	const MONTHS_OKT = 'MONTHS_OKT';
 	const MONTHS_NOV = 'MONTHS_NOV';
 	const MONTHS_DEC = 'MONTHS_DEC';
+	const HEADER_ADDRESS = 'HEADER_ADDRESS';
+	const HEADER_PHONE = 'HEADER_PHONE';
 
 
 	protected $db;
@@ -91,6 +93,8 @@ class Lang {
 			self::MONTHS_OKT => 'октября',
 			self::MONTHS_NOV => 'ноября',
 			self::MONTHS_DEC => 'декабря',
+			self::HEADER_ADDRESS => 'Адрес',
+			self::HEADER_PHONE => 'Телефон',
 		],
 		'en'	=> [
 			self::ERROR404 => 'Something seems to be wrong.<br/>Try going to the <a href="/">Home</a> page or <a href="tel:<%TELLINK%>" class="tel">call <%TEL%></a>',
@@ -132,6 +136,8 @@ class Lang {
 			self::MONTHS_OKT => 'October',
 			self::MONTHS_NOV => 'November',
 			self::MONTHS_DEC => 'December',
+			self::HEADER_ADDRESS => 'Address',
+			self::HEADER_PHONE => 'Phone',
 		],
 		'cz'	=> [
 			self::ERROR404 => 'Zdá se, že se něco pokazilo. <br/>Zkuste přejít na <a href="/">Home</a> tuto stránku nebo <a href="tel:<%TELLINK%>" class="tel">volejte <%TEL%></a>',
@@ -173,6 +179,8 @@ class Lang {
 			self::MONTHS_OKT => 'Říjen',
 			self::MONTHS_NOV => 'Listopad',
 			self::MONTHS_DEC => 'Prosinec',
+			self::HEADER_ADDRESS => 'Address',
+			self::HEADER_PHONE => 'Phone',
 		],
 	];
 

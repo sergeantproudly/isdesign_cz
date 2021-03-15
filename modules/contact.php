@@ -32,8 +32,8 @@ class contact extends krn_abstract{
 
 		$contactsContent = '';
 		$contact = $this->db->GetRow('SELECT * FROM contacts WHERE Lang = ?i', $this->lang->GetId());
-		if ($contact['Address']) $contactsContent .= '<h4>Address</h4><p>' . $contact['Address'] . '</p>';
-		if ($contact['Tel1'] || $contact['Tel2']) $contactsContent .= '<h4>Phone</h4><p id="tel">' . ($contact['Tel1'] ? '<a href="tel:'.preg_replace('/[^\d\+]/', '', $contact['Tel1']).'">'.$contact['Tel1'].'</a><br>' : '') . ($contact['Tel2'] ? '<a href="tel:'.preg_replace('/[^\d\+]/', '', $contact['Tel2']).'">'.$contact['Tel2'].'</a>' : '') . '</p>';
+		if ($contact['Address']) $contactsContent .= '<h4>' . $this->lang->GetValue('HEADER_ADDRESS') . '</h4><p>' . $contact['Address'] . '</p>';
+		if ($contact['Tel1'] || $contact['Tel2']) $contactsContent .= '<h4>' . $this->lang->GetValue('HEADER_PHONE') . '</h4><p id="tel">' . ($contact['Tel1'] ? '<a href="tel:'.preg_replace('/[^\d\+]/', '', $contact['Tel1']).'">'.$contact['Tel1'].'</a><br>' : '') . ($contact['Tel2'] ? '<a href="tel:'.preg_replace('/[^\d\+]/', '', $contact['Tel2']).'">'.$contact['Tel2'].'</a>' : '') . '</p>';
 		if ($contact['Email1'] || $contact['Email2']) $contactsContent .= '<h4>E-mail</h4><p id="email">' . ($contact['Email1'] ? '<a href="mailto:'.$contact['Email1'].'">'.$contact['Email1'].'</a>' : '') . ($contact['Email2'] ? '<a href="mailto:'.$contact['Email2'].'">'.$contact['Email2'].'</a>' : '') . '</p>';
 
 		$element = LoadTemplate('bl_social_el');
