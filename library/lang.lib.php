@@ -179,8 +179,8 @@ class Lang {
 			self::MONTHS_OKT => 'Říjen',
 			self::MONTHS_NOV => 'Listopad',
 			self::MONTHS_DEC => 'Prosinec',
-			self::HEADER_ADDRESS => 'Address',
-			self::HEADER_PHONE => 'Phone',
+			self::HEADER_ADDRESS => 'Adresa',
+			self::HEADER_PHONE => 'Telefon',
 		],
 	];
 
