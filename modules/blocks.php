@@ -449,7 +449,7 @@ class blocks extends krn_abstract{
 		foreach ($items as $i => $item) {
 			$link = '/projects/' . $item['CategoryCode'] . '/' . $item['Code'] . '/';
 			$alt = htmlspecialchars($item['Title'], ENT_QUOTES);
-			$image = '<a href="' . $link . '" class="projects-item-photo"><picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '"></picture></a>';
+			$image = '<a href="' . $link . '" class="projects-item-photo"><picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '" loading="lazy"></picture></a>';
 			$content .= strtr($element, [
 				'<%LINK%>'		=> $link,
 				'<%TITLE%>'		=> $item['Title'],
@@ -557,7 +557,7 @@ class blocks extends krn_abstract{
 		$even = false;
 		foreach ($items as $item) {
 			$alt = htmlspecialchars($item['Title'], ENT_QUOTES);
-			$image = '<picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '"></picture>';
+			$image = '<picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '" loading="lazy"></picture>';
 			$content .= strtr($element, [
 				'<%TITLE%>'		=> $item['Title'],
 				'<%TEXT%>'		=> nl2br($item['Text']),
