@@ -124,7 +124,7 @@ class blocks extends krn_abstract{
 		foreach ($items as $item) {
 			$title = $item['TitleOnMain'] ?: $item['Title'];
 			$link = '/' . $item['Code'] . '/';
-			$image = '<a href="' . $link . '" class="projects-item-photo"><picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '"></picture></a>';
+			$image = '<a href="' . $link . '" class="projects-item-photo"><picture><source srcset="' . flGetWebpByImage($item['Image']) . '" type="image/webp"><img src="' . $item['Image'] . '" alt="' . $alt . '" loading="lazy"></picture></a>';
 			$content .= strtr($element, [
 				'<%TITLE%>'		=> $title,
 				'<%LINK%>'		=> $link,
