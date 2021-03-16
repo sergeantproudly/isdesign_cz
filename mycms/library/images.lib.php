@@ -185,4 +185,41 @@
 		return true;
 	}
 
+	function imgToWebp($filepath) {
+		$fileInfo = flGetInfo($filepath);
+		$destpath = $fileInfo['directory'].$fileInfo['caption'].'.webp';
+
+		if (class_exists('Imagick')) {
+			$img = new Imagick();
+			$img->readImage($filepath);
+			$img->setImageFormat('webp');
+			$img->setImageAlphaChannel(imagick::ALPHACHANNEL_ACTIVATE);
+			$img->setBackgroundColor(new ImagickPixel('transparent'));
+			$img->writeImage($destpath);
+			$img->destroy();
+
+		} else {
+			switch ($fileInfo['extension']) {
+				case 'jpg':
+					$img = @imagecreatefromjpeg($filepath);
+				break;
+				case 'png':
+					$img = @imagecreatefrompng($filepath);
+					
+					imagecolortransparent($img,imagecolorallocate($img, 0, 0, 0));
+					imagealphablending($img,false);
+					imagesavealpha($img, true);
+				break;
+				case 'gif':
+					$img = @imagecreatefromgif($filepath);
+				break;
+			}
+
+			imagewebp($img, $destpath);
+			imagedestroy($img);
+		}
+
+		return $destpath;
+	}
+
 ?>

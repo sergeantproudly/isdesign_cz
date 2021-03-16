@@ -206,9 +206,9 @@ class records extends krn_abstract{
 			}else*/
 			if($document['CanEdit']){
 				if($params['parent_record_field'] && $params['parent_record_id']){
-					$actionEdit='Popup(\'record_edit\',600,{id:'.$rec[$document['IdElement']].', document_id:'.$document['Id'].', params:{parent_record_id: '.$params['parent_record_id'].','.($params['subst_record_id']?'subst_record_id: '.$params['subst_record_id'].',':'').' parent_record_field: \''.$params['parent_record_field'].'\'}});';
+					$actionEdit='Popup(\'record_edit\',700,{id:'.$rec[$document['IdElement']].', document_id:'.$document['Id'].', params:{parent_record_id: '.$params['parent_record_id'].','.($params['subst_record_id']?'subst_record_id: '.$params['subst_record_id'].',':'').' parent_record_field: \''.$params['parent_record_field'].'\'}});';
 				}else{
-					$actionEdit='Popup(\'record_edit\',600,{id:'.$rec[$document['IdElement']].', document_id:'.$document['Id'].'});';
+					$actionEdit='Popup(\'record_edit\',700,{id:'.$rec[$document['IdElement']].', document_id:'.$document['Id'].'});';
 				}
 			}
 			if($document['CanDelete']){

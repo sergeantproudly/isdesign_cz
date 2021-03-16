@@ -672,7 +672,7 @@ function userDeleteSendForm(sender){
 function recAdd(sender,document_id,params){
 	var count=domSTC(domPN(sender),'input').value;
 	if(!count||count<=1){
-		Popup('record_add',600,{'document_id':document_id,'params':params});
+		Popup('record_add',700,{'document_id':document_id,'params':params});
 	}else{
 		redirect('index.php?module=records&mode=Add&document_id='+document_id+toGetParams(params,true)+'&count='+count);
 	}
@@ -748,7 +748,7 @@ function recEdit(sender,document_id,params){
 	}
 	if(fstCb){
 		id=fstCb.name.substr(3,fstCb.name.length-4);
-		Popup('record_edit',600,{'id':id,'document_id':document_id,'params':params});
+		Popup('record_edit',700,{'id':id,'document_id':document_id,'params':params});
 	}else{
 		Popup('message',300,{'header':'Хм,','message':'Похоже, ничего не выделено'});
 	}
