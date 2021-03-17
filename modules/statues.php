@@ -61,17 +61,7 @@ class statues extends krn_abstract {
 		$blocks = $this->blocks->GetPageBlocks();
 
 		if ($this->statue) {
-			$result = krnLoadPageByTemplate('statue');
-			$result = strtr($result, array(
-				'<%META_KEYWORDS%>'		=> $this->statue['SeoKeywords'] ?: $Config['Site']['Keywords'],
-				'<%META_DESCRIPTION%>'	=> $this->statue['SeoDescription'] ?: $Config['Site']['Description'],
-		    	'<%PAGE_TITLE%>'		=> $this->statue['SeoTitle'] ?: $this->pageTitle,
-		    	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
-		    	'<%IMAGEWEBP%>'			=> flGetWebpByImage($this->statue['ImageFull']),
-		    	'<%IMAGE%>'				=> $this->statue['ImageFull'],
-		    	'<%TITLE%>'				=> $this->statue['Header'] ?: $this->pageTitle,
-		    	'<%TEXT%>'				=> $this->statue['Text'],
-			));
+			$result = $this->GetStatue();
 
 		} else {
 			$content = $this->GetStatues();
@@ -154,6 +144,44 @@ class statues extends krn_abstract {
 		);
 		
 		return json_encode($json);
+	}
+
+	public function GetStatue() {
+		$content = $this->statue['Text'];
+
+		// process all images in text to picture tag
+		preg_match_all('/<img[^>]+>/i', $content, $textResults);
+		$images = array();
+		foreach ($textResults[0] as $imgTag) {
+			preg_match_all('/(alt|title|src)="([^"]*)"/i', $imgTag, $images[$imgTag]);
+		}
+		foreach ($images as $sourceImg => $attrs) {
+			$attrsHtml = '';
+			$webp = '';
+			foreach ($attrs[1] as $k => $attrName) {
+				if ($attrName == 'src') {
+					$src = str_replace('admin/../', '', $attrs[2][$k]);
+					$webp = flGetWebpByImage($src);
+					$attrsHtml .= $attrName . '="' . $src . '"" ';
+				} else $attrsHtml .= $attrName . '="' . $attrs[2][$k] . '"" ';
+			}
+			$picture = '<picture><source srcset="' . $webp . '" type="image/webp"></source><img ' . $attrsHtml . ' loading="lazy"></picture>';
+			$content = str_replace($sourceImg, $picture, $content);
+		}
+
+		$result = krnLoadPageByTemplate('statue');
+		$result = strtr($result, array(
+			'<%META_KEYWORDS%>'		=> $this->statue['SeoKeywords'] ?: $Config['Site']['Keywords'],
+			'<%META_DESCRIPTION%>'	=> $this->statue['SeoDescription'] ?: $Config['Site']['Description'],
+		   	'<%PAGE_TITLE%>'		=> $this->statue['SeoTitle'] ?: $this->pageTitle,
+		   	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
+		   	'<%IMAGEWEBP%>'			=> flGetWebpByImage($this->statue['ImageFull']),
+		   	'<%IMAGE%>'				=> $this->statue['ImageFull'],
+		   	'<%TITLE%>'				=> $this->statue['Header'] ?: $this->pageTitle,
+		   	'<%TEXT%>'				=> $content,
+		));
+
+		return $result;
 	}
 }
 
