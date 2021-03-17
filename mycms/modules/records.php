@@ -775,6 +775,9 @@ class records extends krn_abstract{
 										$info=flGetInfo($sourcepath);
 										flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
 										$_POST[$name][$id]=$value=$uploadpath.$info['basename'];
+
+										// convert to webp
+										imgToWebp(ABS_PATH.ROOT_DIR.$value);
 									}
 								}else{
 									$resize['source']=$elementProperties[43]?$elementProperties[43]:'Image';
@@ -789,6 +792,9 @@ class records extends krn_abstract{
 										$info=flGetInfo($value);
 										if(mb_substr($resize['uploadpath'],mb_strlen($resize['uploadpath'])-1)!='/')$resize['uploadpath'].='/';
 										$value=$resize['uploadpath'].$info['basename'];
+
+										// convert to webp
+										imgToWebp(ABS_PATH.ROOT_DIR.$value);
 									}
 								}
 							break;
@@ -919,6 +925,9 @@ class records extends krn_abstract{
 									$info=flGetInfo($sourcepath);
 									flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
 									$_POST[$name]=$value=$uploadpath.$info['basename'];
+
+									// convert to webp
+									imgToWebp(ABS_PATH.ROOT_DIR.$value);
 								}
 							}else{
 								$resize['source']=$elementProperties[43]?$elementProperties[43]:'Image';
@@ -933,6 +942,9 @@ class records extends krn_abstract{
 									$info=flGetInfo($value);
 									if(mb_substr($resize['uploadpath'],mb_strlen($resize['uploadpath'])-1)!='/')$resize['uploadpath'].='/';
 									$value=$resize['uploadpath'].$info['basename'];
+
+									// convert to webp
+									imgToWebp(ABS_PATH.ROOT_DIR.$value);
 								}
 							}
 						break;
@@ -1325,6 +1337,9 @@ class records extends krn_abstract{
 										$info=flGetInfo($sourcepath);
 										flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
 										$_POST[$name][$id]=$value=$uploadpath.$info['basename'];
+
+										// convert to webp
+										imgToWebp(ABS_PATH.ROOT_DIR.$value);
 									}else{
 										$untouched=true;
 									}
@@ -1344,6 +1359,9 @@ class records extends krn_abstract{
 										$info=flGetInfo($value);
 										if(mb_substr($resize['uploadpath'],mb_strlen($resize['uploadpath'])-1)!='/')$resize['uploadpath'].='/';
 										$value=$resize['uploadpath'].$info['basename'];
+
+										// convert to webp
+										imgToWebp(ABS_PATH.ROOT_DIR.$value);
 									}else{
 										$untouched=true;
 									}
@@ -1489,6 +1507,9 @@ class records extends krn_abstract{
 									$info=flGetInfo($sourcepath);
 									flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
 									$_POST[$name]=$value=$uploadpath.$info['basename'];
+
+									// convert to webp
+									imgToWebp(ABS_PATH.ROOT_DIR.$value);
 								}else{
 									$untouched=true;
 								}
@@ -1508,6 +1529,9 @@ class records extends krn_abstract{
 									$info=flGetInfo($value);
 									if(mb_substr($resize['uploadpath'],mb_strlen($resize['uploadpath'])-1)!='/')$resize['uploadpath'].='/';
 									$value=$resize['uploadpath'].$info['basename'];
+
+									// convert to webp
+									imgToWebp(ABS_PATH.ROOT_DIR.$value);
 								}else{
 									$untouched=true;
 								}
@@ -1619,6 +1643,10 @@ class records extends krn_abstract{
 					case 4:
 						$filepath=dbGetValueFromDb('SELECT `'.$name.'` FROM `'.$this->document['Table'].'` WHERE Id='.$id,__FILE__,__LINE__);
 						flDeleteFile(ABS_PATH.ROOT_DIR.$filepath);
+
+						// delete webp
+						$fileinfo=flGetInfo($filepath);
+						flDeleteFile(ABS_PATH.ROOT_DIR.$fileinfo['directory'].$fileinfo['caption'].'.webp');
 					break;
 					case 5:
 						$filepath=dbGetValueFromDb('SELECT `'.$name.'` FROM `'.$this->document['Table'].'` WHERE Id='.$id,__FILE__,__LINE__);

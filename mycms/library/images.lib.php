@@ -201,6 +201,7 @@
 		} else {
 			switch ($fileInfo['extension']) {
 				case 'jpg':
+				case 'jpeg':
 					$img = @imagecreatefromjpeg($filepath);
 				break;
 				case 'png':
