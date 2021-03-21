@@ -17,7 +17,7 @@ class projects extends krn_abstract{
 
 		if ($_LEVEL[3] && !preg_match('/^[\d]+$/', $_LEVEL[3])) {
 			$this->projectCode = $_LEVEL[3];
-			$query = 'SELECT p.Id, p.Title, p.Text, p.Header, p.Image1204_766 as Image, p.SeoTitle, p.SeoKeywords, p.SeoDescription, '
+			$query = 'SELECT p.Id, p.Code, p.Title, p.Text, p.Header, p.Image1204_766 as Image, p.SeoTitle, p.SeoKeywords, p.SeoDescription, '
 					.'c.Title AS CategoryTitle, c.Code AS CategoryCode '
 					.'FROM cat_projects p '
 					.'LEFT JOIN cat_categories c ON p.CategoryId = c.Id '
