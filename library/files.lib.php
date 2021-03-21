@@ -138,7 +138,11 @@
 
 	function flGetWebpByImage($filepath) {
 		$extension = flGetExtension($filepath);
-		return preg_replace('/\.' . $extension .'$/', '.webp', $filepath);
+		return preg_replace('/\.' . $extension .'$/', '.webp', flSpace($filepath));
+	}
+
+	function flSpace($filepath) {
+		return str_replace(' ', '%20', $filepath);
 	}
 
 ?>
