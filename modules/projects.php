@@ -94,7 +94,7 @@ class projects extends krn_abstract{
 			}
 
 			$more = $this->recsOnPage * $this->pageIndex < $this->totalCount ? GetMore([
-				'link'		=> '/projects/' . $this->project['CategoryCode'] . '/' . ($this->pageIndex + 1) . '/',
+				'link'		=> '/projects/' . $this->project['CategoryCode'] . '/' . $this->project['Code'] . '/' . ($this->pageIndex + 1) . '/',
 				'function'	=> 'photosMore();'
 			]) : '';
 
