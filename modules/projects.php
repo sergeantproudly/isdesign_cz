@@ -101,6 +101,11 @@ class projects extends krn_abstract{
 			$metaImgPath = $this->settings->GetSetting('SiteUrl', $Config['Site']['Url']) . '/' . $this->project['Image'];
 			$metaImgSize = getimagesize($metaImgPath);
 
+			if ($this->pageIndex && $this->pageIndex > 1) {
+				$metaExtended = '<meta name="robots" content="noindex, follow" />'.PHP_EOL;
+				$metaExtended .= '<link rel="canonical" href="' . $this->settings->GetSetting('SiteUrl', $Config['Site']['Url']) . '/' . $this->page['Code'] . '/' . $this->project['CategoryCode'] . '/' . $this->project['Code'] . '/"/>'.PHP_EOL;
+			}
+
 			$result = krnLoadPageByTemplate('project');
 			$result = strtr($result, array(
 				'<%META_KEYWORDS%>'		=> $this->project['SeoKeywords'] ?: $Config['Site']['Keywords'],
@@ -108,6 +113,7 @@ class projects extends krn_abstract{
 				'<%META_IMAGE%>'		=> $metaImgPath,
 				'<%META_IMAGE_WIDTH%>'	=> $metaImgSize[0],
 		    	'<%META_IMAGE_HEIGHT%>'	=> $metaImgSize[1],
+		    	'<%META_EXTENDED%>'		=> $metaExtended,
 		    	'<%PAGE_TITLE%>'		=> $this->project['SeoTitle'] ?: $this->pageTitle,
 		    	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
 		    	'<%TITLE%>'				=> $this->project['Header'] ?: $this->pageTitle,
