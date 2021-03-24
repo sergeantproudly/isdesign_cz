@@ -167,10 +167,12 @@ class statues extends krn_abstract {
 				if ($attrName == 'src') {
 					$src = str_replace('admin/../', '', $attrs[2][$k]);
 					$webp = flGetWebpByImage($src);
-					$attrsHtml .= $attrName . '="' . $src . '"" ';
-				} else $attrsHtml .= $attrName . '="' . $attrs[2][$k] . '"" ';
+					$attrsHtml .= $attrName . '="' . $src . '" ';
+				} else $attrsHtml .= $attrName . '="' . $attrs[2][$k] . '" ';
 			}
 			$picture = '<picture><source srcset="' . $webp . '" type="image/webp"></source><img ' . $attrsHtml . ' loading="lazy"></picture>';
+			var_dump($picture);
+			die();
 			$content = str_replace($sourceImg, $picture, $content);
 		}
 
