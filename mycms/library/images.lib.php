@@ -202,17 +202,17 @@
 			switch ($fileInfo['extension']) {
 				case 'jpg':
 				case 'jpeg':
-					$img = @imagecreatefromjpeg($filepath);
+					$img = imagecreatefromjpeg($filepath);
 				break;
 				case 'png':
-					$img = @imagecreatefrompng($filepath);
+					$img = imagecreatefrompng($filepath);
 					
 					imagecolortransparent($img,imagecolorallocate($img, 0, 0, 0));
 					imagealphablending($img,false);
 					imagesavealpha($img, true);
 				break;
 				case 'gif':
-					$img = @imagecreatefromgif($filepath);
+					$img = imagecreatefromgif($filepath);
 				break;
 			}
 
