@@ -757,7 +757,7 @@ function envInitWysiwyg(wysiwyg){
 		toolbar : [
 					['Source', '-', 'Bold', 'Italic', 'Underline'],
 					['Link', 'Unlink','-', 'Image','-','NumberedList','BulletedList','Table'],
-					['Font','TextColor','RemoveFormat'],
+					['Format','TextColor','RemoveFormat'],
 					['JustifyLeft','JustifyCenter','JustifyRight'],
 					['Maximize', 'ShowBlocks']
 				  ],
