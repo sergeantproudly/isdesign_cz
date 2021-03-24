@@ -72,7 +72,7 @@ class ajax extends krn_abstract{
 		$filepath=flUpload($_FILES['upload']['name'],$_FILES['upload']['tmp_name'],UPLOADS_DIR);
 		$fileinfo=flGetInfo($filepath);
 
-		$webpFilePath = imgToWebp($filepath);
+		$webpFilePath = imgToWebp(ABS_PATH.ROOT_DIR.$filepath);
 		$webpFileInfo = flGetInfo($webpFilePath);		
 
 		$callback=$_REQUEST['CKEditorFuncNum'];
