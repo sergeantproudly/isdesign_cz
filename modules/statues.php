@@ -3,6 +3,7 @@
 krnLoadLib('define');
 krnLoadLib('settings');
 krnLoadLib('tabs');
+krnLoadLib('modal');
 
 class statues extends krn_abstract {
 
@@ -61,6 +62,9 @@ class statues extends krn_abstract {
 		$blocks = $this->blocks->GetPageBlocks();
 
 		if ($this->statue) {
+			$modalRequest = new Modal('request', ['Action' => '/ajax--act-Feedback/', 'Title' => $this->lang->GetValue('REQUEST')]);
+			$Site->addModal($modalRequest->GetModal());
+
 			$result = $this->GetStatue();
 
 		} else {
