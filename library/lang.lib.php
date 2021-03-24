@@ -9,6 +9,7 @@ class Lang {
 	const PRIVACY_POLICY = 'PRIVACY_POLICY';
 	const MAP = 'MAP';
 	const FEEDBACK = 'FEEDBACK';
+	const REQUEST = 'REQUEST';
 	const CALCULATE = 'CALCULATE';
 	const VIEW = 'VIEW';
 	const VIEW_INSTAGRAM = 'VIEW_INSTAGRAM';
