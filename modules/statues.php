@@ -4,6 +4,7 @@ krnLoadLib('define');
 krnLoadLib('settings');
 krnLoadLib('tabs');
 krnLoadLib('modal');
+krnLoadLib('files');
 
 class statues extends krn_abstract {
 
