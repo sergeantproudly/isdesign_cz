@@ -58,7 +58,7 @@ class services extends krn_abstract{
 			'Title' => $this->service['Button'],
 			'Subject' => $this->service['Button'],
 		]);
-		$modalRequest = new Modal('request', ['Action' => '/ajax--act-Feedback/', 'Title' => 'Оставить заявку']);
+		$modalRequest = new Modal('request', ['Action' => '/ajax--act-Feedback/', 'Title' => $this->lang->GetValue('REQUEST')]);
 		$Site->addModal($modalCalculation->GetModal());
 		$Site->addModal($modalRequest->GetModal());
 
