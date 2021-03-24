@@ -767,7 +767,8 @@ function envInitWysiwyg(wysiwyg){
 		filebrowserImageUploadUrl : 'index.php?module=ajax&act=UploadImage',
 	    filebrowserWindowWidth  : 800,
 	    filebrowserWindowHeight : 500,
-	    language : 'ru'
+	    language : 'ru',
+	    allowedContent : true
 	};
 	editors[id]=CKEDITOR.appendTo(wysiwyg, config, inp.value);
 }
