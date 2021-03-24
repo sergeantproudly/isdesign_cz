@@ -171,8 +171,6 @@ class statues extends krn_abstract {
 				} else $attrsHtml .= $attrName . '="' . $attrs[2][$k] . '" ';
 			}
 			$picture = '<picture><source srcset="' . $webp . '" type="image/webp"></source><img ' . $attrsHtml . ' loading="lazy"></picture>';
-			var_dump($picture);
-			die();
 			$content = str_replace($sourceImg, $picture, $content);
 		}
 
