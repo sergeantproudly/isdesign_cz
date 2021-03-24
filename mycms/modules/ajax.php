@@ -72,7 +72,7 @@ class ajax extends krn_abstract{
 		$filepath=flUpload($_FILES['upload']['name'],$_FILES['upload']['tmp_name'],UPLOADS_DIR);
 		$fileinfo=flGetInfo($filepath);
 
-		$webpFilePath = imgToWebp(ABS_PATH.ROOT_DIR.$filepath);
+		$webpFilePath = imgToWebp(ABS_PATH.$filepath);
 
 		$callback=$_REQUEST['CKEditorFuncNum'];
 		$result='<script type="text/javascript">window.parent.CKEDITOR.tools.callFunction("'.$callback.'", "'.$fileinfo['absolute'].'","Файл загружен" );</script>';
