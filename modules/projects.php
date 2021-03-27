@@ -56,6 +56,10 @@ class projects extends krn_abstract{
 				$this->pageTitle);
 
 		} else {
+			if ($_LEVEL[1] != $this->page['Code']) {
+				$this->notFound = true;
+			}
+			
 			$this->pageTitle = $this->page['SeoTitle'] ?: $this->page['Title'];
 		}
 	}	

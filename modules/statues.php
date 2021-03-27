@@ -31,6 +31,10 @@ class statues extends krn_abstract {
 				$this->pageTitle);
 
 		} else {
+			if ($_LEVEL[1] != $this->page['Code']) {
+				$this->notFound = true;
+			}
+
 			if (preg_match('/^[\d]+$/', $_LEVEL[2], $m)) {
 				$this->pageIndex = $m[0];
 			}
