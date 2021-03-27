@@ -274,8 +274,8 @@ class projects extends krn_abstract{
 				$content2 .= strtr($counter == 0 ? $elementPhoto : $elementPhoto2, [
 					'<%ALT%>'	=> htmlspecialchars($item['Title'], ENT_QUOTES),
 					'<%IMAGEWEBP%>'	=> flGetWebpByImage('/' . $item[$counter == 0 ? 'ImageBig' : 'ImageMid']),
-					'<%IMAGE%>'	=> '/' . $item[$counter == 0 ? 'ImageBig' : 'ImageMid'],
-					'<%IMAGEFULL%>' => '/' . $item['ImageFull'],
+					'<%IMAGE%>'	=> '/' . flSpace($item[$counter == 0 ? 'ImageBig' : 'ImageMid']),
+					'<%IMAGEFULL%>' => '/' . flSpace($item['ImageFull']),
 				]);
 				if ($counter == 2) $content2 .= '</div>';
 				
@@ -284,8 +284,8 @@ class projects extends krn_abstract{
 				$content2 .= strtr($counter == 2 ? $elementPhoto : $elementPhoto2, [
 					'<%ALT%>'	=> htmlspecialchars($item['Title'], ENT_QUOTES),
 					'<%IMAGEWEBP%>'	=> flGetWebpByImage('/' . $item[$counter == 2 ? 'ImageBig' : 'ImageMid']),
-					'<%IMAGE%>'	=> '/' . $item[$counter == 2 ? 'ImageBig' : 'ImageMid'],
-					'<%IMAGEFULL%>' => '/' . $item['ImageFull'],
+					'<%IMAGE%>'	=> '/' . flSpace($item[$counter == 2 ? 'ImageBig' : 'ImageMid']),
+					'<%IMAGEFULL%>' => '/' . flSpace($item['ImageFull']),
 				]);
 				if ($counter == 1) $content2 .= '</div>';
 			}
@@ -345,7 +345,7 @@ class projects extends krn_abstract{
 			$this->$this->recsOnPage * ($this->pageIndex + 1),
 			$this->totalCount);
 			foreach ($items as $item) {
-				$result .= '<a href="' . $item['ImageFull'] . '" class="js-lightbox empty" data-gallery="reviews"></a>';
+				$result .= '<a href="' . flSpace($item['ImageFull']) . '" class="js-lightbox empty" data-gallery="reviews"></a>';
 			}
 		}
 
