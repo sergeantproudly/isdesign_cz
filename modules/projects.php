@@ -151,8 +151,8 @@ class projects extends krn_abstract{
 
 			$result = krnLoadPageByTemplate('projects');
 			$result = strtr($result, array(
-				'<%META_KEYWORDS%>'		=> $this->category['SeoKeywords'] ?: $Config['Site']['Keywords'],
-				'<%META_DESCRIPTION%>'	=> $this->category['SeoDescription'] ?: $Config['Site']['Description'],
+				'<%META_KEYWORDS%>'		=> $this->category['SeoKeywords'] ?: $this->page['SeoKeywords'] ?: $Config['Site']['Keywords'],
+				'<%META_DESCRIPTION%>'	=> $this->category['SeoDescription'] ?: $this->page['SeoDescription'] ?: $Config['Site']['Description'],
 				'<%META_EXTENDED%>'		=> $metaExtended,
 		    	'<%PAGE_TITLE%>'		=> $this->category['SeoTitle'] ?: $this->pageTitle,
 		    	'<%BREAD_CRUMBS%>'		=> $this->breadCrumbs,
