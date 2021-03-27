@@ -6,6 +6,8 @@ krnLoadLib('files');
 class main extends krn_abstract{	
 
 	public function __construct(){
+		var_dump($_SERVER['REQUEST_URI']);
+		
 		parent::__construct();
 		$this->page = $this->db->getRow('SELECT Id, Title, Header, Content, SeoTitle, SeoKeywords, SeoDescription FROM static_pages WHERE Code="main" AND Lang = ?i', $this->lang->GetId());
 		
