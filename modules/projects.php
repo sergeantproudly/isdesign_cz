@@ -11,6 +11,8 @@ class projects extends krn_abstract{
 		global $_LEVEL;
 		parent::__construct();
 
+		var_dump($_SERVER['REQUEST_URI']);
+
 		$this->page = $this->db->getRow('SELECT Id, Code, Title, Header, SeoTitle, SeoKeywords, SeoDescription FROM static_pages WHERE Code = ?s AND Lang = ?i', 'projects', $this->lang->GetId());
 
 		if (preg_match('/^[\d]+$/', $_LEVEL[4], $m) || preg_match('/^[\d]+$/', $_LEVEL[3], $m) || preg_match('/^[\d]+$/', $_LEVEL[2], $m)) $this->pageIndex = $m[0];
