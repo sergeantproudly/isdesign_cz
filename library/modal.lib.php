@@ -109,6 +109,15 @@ class Modal {
 		));
 		return $template;
 	}
+
+	public function ModalQuiz() {
+		krnLoadLib('quiz');
+		$quiz = new Quiz(['ServiceId' => $this->params['ServiceId']]);
+		$template = strtr($this->template, array(
+			'<%CONTENT%>' => $quiz->GenerateHtml(),
+		));
+		return $template;
+	}
 	
 }
 

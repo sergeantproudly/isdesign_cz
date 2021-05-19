@@ -21,6 +21,8 @@
 			2 => Array('Title'=>'Unique','Input'=>'inp_checkbox'),
 			3 => Array('Title'=>'Default','Input'=>'inp_text'),
 			4 => Array('Title'=>'Comment','Input'=>'inp_textarea'),
+			6 => Array('Title'=>'Browse function','Input'=>'inp_text'),
+			7 => Array('Title'=>'Modify function','Input'=>'inp_text'),
 			5 => Array('Title'=>'Syntax pattern','Input'=>'inp_text'),
 			10 => Array('Title'=>'Max symbols','Input'=>'inp_text'),
 			20 => Array('Title'=>'Editor type','Input'=>'inp_text'),

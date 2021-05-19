@@ -12,7 +12,7 @@ class services extends krn_abstract{
 		parent::__construct();
 
 		if ($this->serviceCode = $_LEVEL[1]) {
-			$query = 'SELECT s.Id, s.Code, s.Title, s.Image, s.Button, '
+			$query = 'SELECT s.Id, s.Code, s.Title, s.Image, s.Button, s.HasQuiz, '
 					.'p.Id AS PageId, p.Content, p.Header, p.SeoTitle, p.SeoKeywords, p.SeoDescription, p.TemplateCode '
 					.'FROM services s '
 					.'LEFT JOIN static_pages p ON s.Code = p.Code '
@@ -21,7 +21,6 @@ class services extends krn_abstract{
 			if (!$this->service) {
 				$this->notFound = true;
 			}
-			//ServiceProjectsRecsOnPage
 
 			$this->pageTitle = $this->service['SeoTitle'] ?: $this->service['Title'];
 			//$this->breadCrumbs = GetBreadCrumbs(array(
@@ -62,6 +61,14 @@ class services extends krn_abstract{
 		$Site->addModal($modalCalculation->GetModal());
 		$Site->addModal($modalRequest->GetModal());
 
+		if ($this->service['HasQuiz']) {
+			$modalQuiz = new Modal('quiz', ['ServiceId' => $this->service['Id']]);
+			$Site->addModal($modalQuiz->GetModal());
+			$this->service['ButtonLink'] = '#modal-quiz';
+		} else {
+			$this->service['ButtonLink'] = '#modal-calculation';
+		}
+
 		$this->blocks = krnLoadModuleByName('blocks', $this->service['PageId']);
 		$blocks = $this->blocks->GetPageBlocks($this->service);
 
@@ -79,6 +86,7 @@ class services extends krn_abstract{
 	    	'<%IMAGEWEBP%>'			=> flGetWebpByImage($this->service['Image']),
 	    	'<%IMAGE%>'				=> $this->service['Image'],
 	    	'<%TEXT%>'				=> $this->service['Content'],
+	    	'<%BUTTONLINK%>'		=> $this->service['ButtonLink'],
 	    	'<%BUTTON%>'			=> $this->service['Button'],
 		));
 

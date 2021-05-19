@@ -213,6 +213,23 @@ class actions extends krn_abstract{
 			dbDoQuery('UPDATE static_pages SET LastModTime='.time().' WHERE Id='.$newRecord['Id'],__FILE__,__LINE__);
 		}	
 	}
+
+	/** Quiz templates */
+	function onDeleteQuizTemplate($oldRecord) {
+		dbDoQuery('DELETE FROM quiz_step_variants WHERE StepId IN (SELECT Id FROM quiz_steps WHERE TemplateId = ' . $oldRecord['Id'] . ')', __FILE__, __LINE__);
+		dbDoQuery('DELETE FROM quiz_steps WHERE TemplateId = ' . $oldRecord['Id'], __FILE__,__LINE__);
+
+		$custom = krnLoadModuleByName('custom');
+		$custom->DeleteTemplateSettings($oldRecord['Id']);
+	}
+
+	/** Quiz template steps */
+	function onDeleteQuizTemplateStep($oldRecord) {
+		dbDoQuery('DELETE FROM quiz_step_variants WHERE StepId = ' . $oldRecord['Id'], __FILE__, __LINE__);
+		
+		$custom = krnLoadModuleByName('custom');
+		$custom->DeleteStepExclusionSettings($oldRecord['Id']);
+	}
 }
 
 ?>

@@ -106,6 +106,76 @@ class ajax extends krn_abstract{
 		return json_encode($json);
 	}
 
+	/** Обработка овтетов квиза */
+	public function Quiz() {
+		$name = trim($_POST['name']);
+		$email = trim($_POST['email']);
+		$tel = trim($_POST['tel']) ? '+' . trim($_POST['tel']) : '';
+		$serviceId = $_POST['service_id'];
+		$code = $_POST['code'];
+		$referer = $_POST['referer'];
+
+		$capcha = $_POST['capcha'];
+
+		// проверка на спамбота
+		// основывается на сверке user agent-ов
+		if ($capcha == $_SERVER['HTTP_USER_AGENT']) {
+			if ($tel) {				
+				$form = $this->db->getRow('SELECT Title, SuccessHeader, Success FROM forms WHERE Code=?s AND Lang = ?i', $code, $this->lang->GetId());
+
+				krnLoadLib('quiz');
+				$quiz = new Quiz(['ServiceId' => $serviceId]);
+				$text = $quiz->GetResultsTextByData($_POST['data']);
+
+				$request = '';
+				if ($name) $request .= "Имя: $name\r\n";
+				if ($email) $request .= "E-mail: $email\r\n";
+				if ($tel) $request .= "Телефон: $tel\r\n";
+				if ($referer) $request .= 'Страница заявки: ' . $this->db->getOne('SELECT Title FROM static_pages WHERE Code= ?s AND Lang = ?i', $referer, $this->lang->GetId()) ."\r\n";
+				$request .= 'Ответы квиза:'."\r\n\r\n$text\r\n";
+				$this->db->query('INSERT INTO requests SET DateTime=NOW(), Form=?s, Name=?s, Tel=?s, Text=?s, RefererPage=?s, IsSet=0, Lang = ?i',
+					$subject ?: ($form ? $form['Title'] : ''),
+				 	$name,
+				 	$tel,
+					str_replace('"', '\"', $request),
+					$_SERVER['HTTP_REFERER'],
+					$this->lang->GetId()
+				);
+					
+				global $Config;
+				$siteTitle = strtr(stGetSetting('SiteEmailTitle', $Config['Site']['Title']), array('«'=>'"','»'=>'"','—'=>'-'));
+				$siteEmail = stGetSetting('SiteEmail', $Config['Site']['Email']);
+				$adminTitle = 'Администратор';
+				$adminEmail = stGetSetting('Email', $Config['Site']['Email']);
+					
+				$letter['subject'] = ($subject ?: ($form ? $form['Title'] : '')).' с сайта "'.$siteTitle.'"';
+				$letter['html'] = '<b>'.($subject ?: ($form ? $form['Title'] : '')).'</b><br/><br/>';
+				$letter['html'] .= str_replace("\r\n", '<br/>', $request);
+				$mail = new Mail();
+				$mail->SendMailFromSite($adminEmail, $letter['subject'], $letter['html']);
+											
+				$json = array(
+					'status' => true,
+					'header' => $form['SuccessHeader'],
+					'message' => strip_tags($form['Success']),
+				);
+
+			} else {
+				$json = array(
+					'status' => false,
+					'message' => $this->lang->GetValue('FORM_ERROR_SERVER')
+				);
+			}
+		} else {
+			$json = array(
+				'status' => false,
+				'message' => $this->lang->GetValue('FORM_ERROR_SPAM')
+			);
+		}
+
+		return json_encode($json);
+	}
+
 }
 
 ?>
