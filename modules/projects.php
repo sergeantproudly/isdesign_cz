@@ -345,7 +345,7 @@ class projects extends krn_abstract{
 			$this->recsOnPage * ($this->pageIndex + 1),
 			$this->totalCount);
 			foreach ($items as $item) {
-				$result .= '<a href="' . flSpace($item['ImageFull']) . '" class="js-lightbox empty" data-gallery="reviews"></a>';
+				$result .= '<a href="' . flSpace($item['ImageFull']) . '" class="js-lightbox empty" data-gallery="reviews" title="' . htmlspecialchars($item['Title'], ENT_QUOTES) . '"></a>';
 			}
 		}
 
