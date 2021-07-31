@@ -342,7 +342,7 @@ class projects extends krn_abstract{
 			$items = $this->db->getAll('SELECT Image AS ImageFull FROM cat_project_photos WHERE ProjectId = ?i AND Lang = ?i ORDER BY IF (`Order`, -100/`Order`, 0) LIMIT ?i, ?i', 
 			$this->project['Id'], 
 			$this->lang->GetId(),
-			$this->$this->recsOnPage * ($this->pageIndex + 1),
+			$this->recsOnPage * ($this->pageIndex + 1),
 			$this->totalCount);
 			foreach ($items as $item) {
 				$result .= '<a href="' . flSpace($item['ImageFull']) . '" class="js-lightbox empty" data-gallery="reviews"></a>';
