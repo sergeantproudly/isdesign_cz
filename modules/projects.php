@@ -94,7 +94,7 @@ class projects extends krn_abstract{
 			$this->recsOnPage,
 			$this->totalCount);
 			foreach ($items as $item) {
-				$content .= '<a href="' . flSpace($item['ImageFull']) . '" class="js-lightbox empty" data-gallery="reviews"></a>';
+				$content .= '<a href="' . flSpace($item['ImageFull']) . '" class="js-lightbox empty" data-gallery="reviews" title="' . htmlspecialchars($item['Title'], ENT_QUOTES) . '"></a>';
 			}
 
 			$more = $this->recsOnPage * $this->pageIndex < $this->totalCount ? GetMore([
