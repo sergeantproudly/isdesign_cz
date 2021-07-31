@@ -88,7 +88,7 @@ class projects extends krn_abstract{
 		if ($this->project) {
 			$content = $this->GetProject();
 
-			$items = $this->db->getAll('SELECT Image AS ImageFull FROM cat_project_photos WHERE ProjectId = ?i AND Lang = ?i ORDER BY IF (`Order`, -100/`Order`, 0) LIMIT ?i, ?i', 
+			$items = $this->db->getAll('SELECT Image AS ImageFull, Title FROM cat_project_photos WHERE ProjectId = ?i AND Lang = ?i ORDER BY IF (`Order`, -100/`Order`, 0) LIMIT ?i, ?i', 
 			$this->project['Id'], 
 			$this->lang->GetId(),
 			$this->recsOnPage,
@@ -339,7 +339,7 @@ class projects extends krn_abstract{
 		$more = $this->recsOnPage * $this->pageIndex < $this->totalCount;
 
 		if ($more) {
-			$items = $this->db->getAll('SELECT Image AS ImageFull FROM cat_project_photos WHERE ProjectId = ?i AND Lang = ?i ORDER BY IF (`Order`, -100/`Order`, 0) LIMIT ?i, ?i', 
+			$items = $this->db->getAll('SELECT Image AS ImageFull, Title FROM cat_project_photos WHERE ProjectId = ?i AND Lang = ?i ORDER BY IF (`Order`, -100/`Order`, 0) LIMIT ?i, ?i', 
 			$this->project['Id'], 
 			$this->lang->GetId(),
 			$this->recsOnPage * ($this->pageIndex + 1),
