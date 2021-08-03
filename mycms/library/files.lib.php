@@ -46,6 +46,7 @@
 			$destpath=flUniqueName($info['basename'],$info['directory']);
 		}
 		rename($sourcepath,$destpath);
+		return $destpath;
 	}
 	
 	// delete file

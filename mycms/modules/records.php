@@ -782,8 +782,10 @@ class records extends krn_abstract{
 										$uploadpath=$elementProperties[40]?$elementProperties[40]:UPLOADS_DIR;
 										if(mb_substr($uploadpath,mb_strlen($uploadpath)-1)!='/')$uploadpath.='/';
 										$info=flGetInfo($sourcepath);
-										flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
-										$_POST[$name][$id]=$value=$uploadpath.$info['basename'];
+										//flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
+										//$_POST[$name][$id]=$value=$uploadpath.$info['basename'];
+										$value = str_replace(ABS_PATH.ROOT_DIR, '', flMoveFile($sourcepath, ABS_PATH.ROOT_DIR . $uploadpath . $info['basename']));
+                  						$_POST[$name][$id] = $value;
 
 										// convert to webp
 										imgToWebp(ABS_PATH.ROOT_DIR.$value);
@@ -932,8 +934,10 @@ class records extends krn_abstract{
 									$uploadpath=$elementProperties[40]?$elementProperties[40]:UPLOADS_DIR;
 									if(mb_substr($uploadpath,mb_strlen($uploadpath)-1)!='/')$uploadpath.='/';
 									$info=flGetInfo($sourcepath);
-									flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
-									$_POST[$name]=$value=$uploadpath.$info['basename'];
+									//flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
+									//$_POST[$name]=$value=$uploadpath.$info['basename'];
+									$value = str_replace(ABS_PATH.ROOT_DIR, '', flMoveFile($sourcepath, ABS_PATH.ROOT_DIR . $uploadpath . $info['basename']));
+                  					$_POST[$name] = $value;
 
 									// convert to webp
 									imgToWebp(ABS_PATH.ROOT_DIR.$value);
@@ -1352,8 +1356,10 @@ class records extends krn_abstract{
 										$uploadpath=$elementProperties[40]?$elementProperties[40]:UPLOADS_DIR;
 										if(mb_substr($uploadpath,mb_strlen($uploadpath)-1)!='/')$uploadpath.='/';
 										$info=flGetInfo($sourcepath);
-										flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
-										$_POST[$name][$id]=$value=$uploadpath.$info['basename'];
+										//flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
+										//$_POST[$name][$id]=$value=$uploadpath.$info['basename'];
+										$value = str_replace(ABS_PATH.ROOT_DIR, '', flMoveFile($sourcepath, ABS_PATH.ROOT_DIR . $uploadpath . $info['basename']));
+                  						$_POST[$name][$id] = $value;
 
 										// convert to webp
 										imgToWebp(ABS_PATH.ROOT_DIR.$value);
@@ -1522,8 +1528,10 @@ class records extends krn_abstract{
 									$uploadpath=$elementProperties[40]?$elementProperties[40]:UPLOADS_DIR;
 									if(mb_substr($uploadpath,mb_strlen($uploadpath)-1)!='/')$uploadpath.='/';
 									$info=flGetInfo($sourcepath);
-									flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
-									$_POST[$name]=$value=$uploadpath.$info['basename'];
+									//flMoveFile($sourcepath,ABS_PATH.ROOT_DIR.$uploadpath.$info['basename']);
+									//$_POST[$name]=$value=$uploadpath.$info['basename'];
+									$value = str_replace(ABS_PATH.ROOT_DIR, '', flMoveFile($sourcepath, ABS_PATH.ROOT_DIR . $uploadpath . $info['basename']));
+                  					$_POST[$name] = $value;
 
 									// convert to webp
 									imgToWebp(ABS_PATH.ROOT_DIR.$value);
