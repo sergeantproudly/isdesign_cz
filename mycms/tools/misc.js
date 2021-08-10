@@ -711,10 +711,13 @@ function recAddSendForm(form){
 	}
 	stxResetStatus(form);
 	if(stxCheckElements(checks)){
+		envFormSetBusyStatus(form);
+
 		var ajaxObj=new Ajax();
 		ajaxObj.onLoaded=function(ajaxObj){
 			var response=ajaxObj.request.responseText;
 			eval(response);
+			envFormUnsetBusyStatus(form);
 		}
 		ajaxObj.sendForm(form);
 	}
@@ -787,10 +790,13 @@ function recEditSendForm(form){
 	}
 	stxResetStatus(form);
 	if(stxCheckElements(checks)){
+		envFormSetBusyStatus(form);
+
 		var ajaxObj=new Ajax();
 		ajaxObj.onLoaded=function(ajaxObj){
 			var response=ajaxObj.request.responseText;
 			eval(response);
+			envFormUnsetBusyStatus(form);
 		}
 		ajaxObj.sendForm(form);
 	}

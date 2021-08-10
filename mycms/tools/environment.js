@@ -844,3 +844,12 @@ function envInitDatepicker(datefld){
 		inp.focus();
 	});
 }
+
+function envFormSetBusyStatus(form) {
+	$(form).find('input:submit').attr('disabled', 'disabled')
+		.closest('.btn').addClass('busy');
+}
+function envFormUnsetBusyStatus(form) {
+	$(form).find('input:submit').removeAttr('disabled')
+		.closest('.btn').removeClass('busy');	
+}

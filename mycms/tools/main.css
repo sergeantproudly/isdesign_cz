@@ -1791,3 +1791,49 @@ body>.error{
 	font-weight: bold;
 	text-decoration: none;
 }
+
+.btn.busy {
+	position: relative;
+}
+.btn.busy::before {
+	content:'';
+    position:absolute;
+    right:17px;
+    top:50%;
+    margin-top:-9px;
+    width:15px;
+    height:15px;
+    border: 2px solid #fff;
+    border-left-color: transparent;
+    opacity: 1;
+    -moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-transition: opacity 0.5s ease;
+   	-moz-transition: opacity 0.5s ease;
+   	-o-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+    animation-name: rotate;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.btn.busy input {
+	padding-right: 45px;
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
