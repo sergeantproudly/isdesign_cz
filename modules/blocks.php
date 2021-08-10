@@ -307,7 +307,7 @@ class blocks extends krn_abstract{
 
 		$element = LoadTemplate('bl_instagram_el');
 		$content = '';
-		$items = $this->db->getAll('SELECT Title, Image AS ImageFull, Image624_624 AS Image FROM instagram_photos WHERE Image <> "" ORDER BY RAND()');
+		$items = $this->db->getAll('SELECT Title, Image AS ImageFull, Image624_624 AS Image FROM instagram_photos WHERE Image <> "" AND Lang = ?i ORDER BY RAND()', $this->lang->GetId());
 		foreach ($items as $item) {
 			$content .= strtr($element, [
 				'<%ALT%>'		=> htmlspecialchars($item['Title'], ENT_QUOTES),
