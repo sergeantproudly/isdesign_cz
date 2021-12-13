@@ -172,6 +172,7 @@
 		    	'<%MODALS%>'				=> $this->GetModals(),
 		    	'<%CONSULTANT%>'			=> $this->settings->GetSetting('ConsultantCode'),
 		    	'<%ANALYTICS%>'				=> $this->settings->GetSetting('AnalyticsCode'),
+		    	'<%FACEBOOKPIXEL%>' 		=> $this->settings->GetSetting('FacebookPixel'),
 		    	'<%JSONLD%>'				=> $jsonld,
 		    	'<%BLOCK1%>'				=> '',
 		    	'<%BLOCK2%>'				=> '',
