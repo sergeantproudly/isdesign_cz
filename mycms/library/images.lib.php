@@ -199,7 +199,7 @@
 			$img->destroy();
 
 		} else {
-			switch ($fileInfo['extension']) {
+			switch (strtolower($fileInfo['extension'])) {
 				case 'jpg':
 				case 'jpeg':
 					$img = imagecreatefromjpeg($filepath);
