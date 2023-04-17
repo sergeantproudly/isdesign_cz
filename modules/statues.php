@@ -131,6 +131,7 @@ class statues extends krn_abstract {
 				'<%LINK%>'		=> '/' . $this->page['Code'] . '/' . $item['Code'] . '/',
 				'<%IMAGE%>'		=> $item[!$even ? 'Image' : 'Image2'],
 				'<%IMAGEWEBP%>'	=> flGetWebpByImage($item[!$even ? 'Image' : 'Image2']),
+				'<%LAZY%>' 		=> $counter > 1 ? 'loading="lazy"' : '',
 				'<%TITLE%>'		=> $item['Title'],
 				'<%ALT%>'		=> htmlspecialchars($item['Title'], ENT_QUOTES),
 				'<%TEXT%>'		=> $item['Text'],
